@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <style type="text/css" media="screen">
+    svg {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrapper {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans';
+    }
+
+    .film.selected {
+      -webkit-transition: r 1s ;
+    }
+  </style>
+
+  <script id="film-view-template" type="text/mustache">
+    <article class='film-view'>
+      <header>
+        <h2>{{title}}</h2>
+        <h3>{{genre}} | {{story}}</h3>
+      </header>
+
+      <section>
+        <img src="{{poster_url}}"></img>
+        <p>{{synopsis}}</p>
+      </section>
+    </article>
+  </script>
+
+  <script data-main="/javascripts/application.js" src="/javascripts/vendor/require.js"></script>
+</head>
+<body>
+  <div id='wrapper'>
+    <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id='film-view-container'></div>
+  </div>
+</body>

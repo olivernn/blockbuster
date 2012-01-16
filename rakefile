@@ -1,0 +1,7 @@
+require './data/lib/converter'
+require './data/lib/film'
+require './data/lib/imdb_data'
+
+task :generate do
+  Converter.generate
+end
