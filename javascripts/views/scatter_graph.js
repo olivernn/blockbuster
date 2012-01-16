@@ -27,10 +27,24 @@ define(['./../lib/svg', './../lib/tooltip', './../lib/event_stream'], function (
     'Temptation': 'rgb(211,147,126)'
   }
 
+  var normalizeX = function (val) {
+    var total = paper.width(),
+        max = 1063.16,
+        unit = total / max
+    return unit * val
+  }
+
+  var normalizeY = function (val) {
+    var total = paper.height(),
+        max = 300,
+        unit = total / max
+    return total - (unit * val)
+  }
+
   var filmToCircle = function (film) {
     return new SVG.Circle ({
-      'cx': film.attr('worldwide_gross') * 2,
-      'cy': film.attr('budget') * 2,
+      'cx': normalizeX(film.attr('worldwide_gross')),
+      'cy': normalizeY(film.attr('budget')),
       'r': 2,
       'fill': storyColor[film.attr('story')],
       'fill-opacity': 0.75,
@@ -39,7 +53,7 @@ define(['./../lib/svg', './../lib/tooltip', './../lib/event_stream'], function (
     })
   }
 
-  var init = function () {
+  var init = function (mx, my) {
     paper = new SVG.Doc(document.querySelector('svg'))
   }
 
