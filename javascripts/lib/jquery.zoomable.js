@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', './svg'], function ($, SVG) {
 
   var BoundingBox = function (svgObj) {
     this.svgObj = svgObj
@@ -16,11 +16,13 @@ define(['jquery'], function ($) {
 
   BoundingBox.prototype = {
     nw: function (x, y) {
+      if (arguments.length === 0) return this.nwCoords
       this.nwCoords.x = x
       this.nwCoords.y = y
     },
 
     se: function (x, y) {
+      if (arguments.length === 0) return this.seCoords
       this.seCoords.x = x
       this.seCoords.y = y
     },
@@ -46,17 +48,51 @@ define(['jquery'], function ($) {
     }
   }
 
+  var selection = $('<div>').css({
+    border: '2px dotted #333',
+    position: 'absolute',
+    zIndex: 10
+  })
+
+  var zoomedIn = false
+
   $.fn.zoomable = function (svgObj) {
     var elem = this
 
     elem.bind('mousedown', function (mouseDownEvent) {
-      var boundingBox = new BoundingBox (svgObj)
-      boundingBox.nw(mouseDownEvent.pageX, mouseDownEvent.pageY)
+      if (zoomedIn) {
+        if (mouseDownEvent.target.nodeName == 'circle') return true
+        svgObj.attr('transform', 'foo')
+        zoomedIn = false
+        return false
+      } else {
+        $(document.body).append(selection)
 
-      elem.one('mouseup', function (mouseUpEvent) {
-        boundingBox.se(mouseUpEvent.pageX, mouseUpEvent.pageY)
-        svgObj.attr('transform', boundingBox.toTransform())
-      })
+        var boundingBox = new BoundingBox (svgObj)
+        boundingBox.nw(mouseDownEvent.pageX, mouseDownEvent.pageY)
+
+        selection.css({
+          left: boundingBox.nw().x,
+          top: boundingBox.nw().y,
+          width: 0,
+          height: 0
+        })
+
+        elem.bind('mousemove', function (e) {
+          selection.css({
+            height: e.pageY - boundingBox.nw().y - 10,
+            width: e.pageX - boundingBox.nw().x - 10
+          })
+        })
+
+        elem.one('mouseup', function (mouseUpEvent) {
+          elem.unbind('mousemove')
+          selection.remove()
+          boundingBox.se(mouseUpEvent.pageX, mouseUpEvent.pageY)
+          svgObj.attr('transform', boundingBox.toTransform())
+          zoomedIn = true
+        })
+      }
     })
   }
 })

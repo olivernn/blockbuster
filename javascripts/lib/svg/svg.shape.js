@@ -4,7 +4,11 @@ define(['./svg.matrix'], function (Matrix) {
 
   var getDimension = function (dimension) {
     return function () {
-      return this.elem[dimension].baseVal.value
+      if (this.elem) {
+        return this.elem[dimension].baseVal.value
+      } else {
+        return this.attributes[dimension]
+      };
     }
   }
 
