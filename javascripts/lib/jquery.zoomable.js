@@ -60,11 +60,12 @@ define(['jquery', './svg'], function ($, SVG) {
     var elem = this
 
     elem.bind('mousedown', function (mouseDownEvent) {
+      if (mouseDownEvent.target.nodeName == 'circle') return true
+
       if (zoomedIn) {
-        if (mouseDownEvent.target.nodeName == 'circle') return true
         svgObj.attr('transform', 'foo')
         zoomedIn = false
-        return false
+        return
       } else {
         $(document.body).append(selection)
 
@@ -80,7 +81,7 @@ define(['jquery', './svg'], function ($, SVG) {
 
         elem.bind('mousemove', function (e) {
           selection.css({
-            height: e.pageY - boundingBox.nw().y - 10,
+            height: e.pageX - boundingBox.nw().x - 10,
             width: e.pageX - boundingBox.nw().x - 10
           })
         })
