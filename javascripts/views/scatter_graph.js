@@ -1,6 +1,6 @@
-define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/event_stream'], function ($, SVG, tooltip, eventStream) {
+define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/event_stream', './../lib/jquery.zoomable'], function ($, SVG, tooltip, eventStream) {
 
-  var paper, elem
+  var paper, elem, circleGroup
 
   var storyColor = {
     'Discovery': 'rgb(122,73,28)',
@@ -60,32 +60,8 @@ define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/event_stream'], 
 
     circleGroup.attr('width', paper.width())
     circleGroup.attr('height', paper.height())
-    setupZoomable()
-  }
 
-  var setupZoomable = function () {
-    var selectionStartX, selectionStartY
-    elem.bind('mousedown', function (e) {
-      selectionStartX = e.pageX
-      selectionStartY = e.pageY
-
-      elem.one('mouseup', function (e) {
-        var boundingBox = {
-          x: selectionStartX,
-          y: selectionStartY,
-          width: e.pageX - selectionStartX,
-          height: e.pageY - selectionStartY
-        }
-
-        var boundingBoxArea = boundingBox.width * boundingBox.height,
-            zoomRatio = paper.width() / boundingBox.width,
-            translateX = -1 * boundingBox.x,
-            translateY = -1 * boundingBox.y,
-            transformVal = "scale(" + zoomRatio + ") translate(" + translateX + "," + translateY + ")"
-        
-        circleGroup.attr('transform', transformVal)
-      })
-    })
+    elem.zoomable(circleGroup)
   }
 
   var draw = function (films) {
