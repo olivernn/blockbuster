@@ -1,8 +1,16 @@
-define(function () {
+define(['./svg.matrix'], function (Matrix) {
 
   var svgNamespace = "http://www.w3.org/2000/svg"
 
-  Shape = function () {}
+  var getDimension = function (dimension) {
+    return function () {
+      return this.elem[dimension].baseVal.value
+    }
+  }
+
+  Shape = function () {
+    this.transform = new Matrix
+  }
 
   Shape.prototype = {
     toElem: function () {
@@ -28,8 +36,13 @@ define(function () {
     },
 
     attr: function (name, val) {
-      if (val) this.elem.setAttribute(name, val)
-      return this.elem.getAttribute(name)
+      if (this.elem) {
+        if (val) this.elem.setAttribute(name, val)
+        return this.elem.getAttribute(name)
+      } else {
+        if (val) this.attributes[name] = val
+        return this.attributes[name]
+      };
     },
 
     animate: function (attributeName, opts) {
@@ -44,6 +57,13 @@ define(function () {
       this.elem.appendChild(animate)
       animate.beginElement()
       return this
+    },
+
+    width: getDimension('width'),
+    height: getDimension('height'),
+
+    applyTransform: function () {
+      this.transform.apply(this)
     }
   }
 

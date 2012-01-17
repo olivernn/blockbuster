@@ -1,4 +1,4 @@
-define(function () {
+define(['./svg.shape'], function (Shape) {
 
   var getDimension = function (dimension) {
     return function () {
@@ -11,13 +11,10 @@ define(function () {
     this.attributes = attributes
   }
 
-  Doc.prototype = {
-    draw: function (obj) {
-      this.elem.appendChild(obj.toElem())
-    },
+  Doc.prototype = new Shape
 
-    width: getDimension('width'),
-    height: getDimension('height')
+  Doc.prototype.draw = function (obj) {
+    this.elem.appendChild(obj.toElem())
   }
 
   return Doc
