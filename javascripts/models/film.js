@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', './../lib/events'], function ($, eventModule) {
 
   var Film = function (attributes) {
     this.attributes = attributes
@@ -8,6 +8,10 @@ define(['jquery'], function ($) {
   }
 
   Film._collection = [];
+  Film.callbacks = {};
+
+  Film.on = eventModule.on.bind(Film);
+  Film.emit = eventModule.emit.bind(Film);
 
   (['forEach', 'map', 'reduce', 'push', 'indexOf', 'filter']).forEach(function (methodName) {
     Film[methodName] = Array.prototype[methodName].bind(Film._collection)
@@ -57,18 +61,13 @@ define(['jquery'], function ($) {
       return this.attributes[name]
     },
 
-    on: function (eventName, handler) {
-      if (!(eventName in this.callbacks)) this.callbacks[eventName] = []
-      this.callbacks[eventName].push(handler)
-      return this
+    on: function () {
+      return eventModule.on.apply(this, arguments)
     },
 
     emit: function (eventName) {
-      var args = Array.prototype.slice.call(arguments, 1)
-      this.callbacks[eventName].forEach(function (handler) {
-        handler.apply(null, args)
-      })
-      return this
+      Film.emit(eventName, this)
+      return eventModule.emit.apply(this, arguments)
     },
 
     select: function () {

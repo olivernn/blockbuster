@@ -1,20 +1,17 @@
-define(['jquery', './../vendor/poirot', './../lib/event_stream'], function ($, poirot, eventStream) {
+define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot, Film) {
 
-  var film, container
+  var container
 
   var init = function () {
     container = $('#film-view-container')
+    Film.on('selected', draw)
   }
 
-  var draw = function (f) {
-    film = f
+  var draw = function (film) {
     container.html(poirot.filmView(film.attributes))
   }
 
-  eventStream.on('film:selected', draw)
-
   return {
-    init: init,
-    draw: draw
+    init: init
   }
 })

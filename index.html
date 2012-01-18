@@ -18,11 +18,20 @@
     </article>
   </script>
 
+  <script id="film-list-view-template" type="text/mustache">
+    <ul>
+      {{#films}}
+        <li>{{title}}</li>
+      {{/films}}
+    </ul>
+  </script>
+
   <script data-main="/javascripts/application.js" src="/javascripts/vendor/require.js"></script>
 </head>
 <body>
   <div id='wrapper'>
     <svg id='scatter-graph' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
     <div id='film-view-container'></div>
+    <div id='film-list-view-container'></div>
   </div>
 </body>
