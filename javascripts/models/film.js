@@ -43,17 +43,20 @@ define(['jquery', './../lib/events'], function ($, eventModule) {
   }
 
   Film.search = function (term) {
-    return this
+    var results = this
       .filter(function (film) {
         var match = film.attr('title').match(term)
         if (match) {
-          film.emit('filter:included')
+          film.emit('search:included')
           return true
         } else {
-          film.emit('filter:excluded')
+          film.emit('search:excluded')
           return false
         };
       })
+
+    this.emit('searchResults', results)
+    return results
   }
 
   Film.prototype = {

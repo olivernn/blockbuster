@@ -57,8 +57,8 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
     this.film
       .on('selected', this.expand.bind(this))
       .on('deselected', this.contract.bind(this))
-      .on('filter:included', this.expand.bind(this))
-      .on('filter:excluded', this.contract.bind(this))
+      .on('search:included', this.expand.bind(this))
+      .on('search:excluded', this.contract.bind(this))
   }
 
   ScatterGraphCircle.prototype.toElem = function () {
@@ -71,7 +71,7 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
   }
 
   ScatterGraphCircle.prototype.expand = function () {
-    this.circle.animate('r', {to: 10, dur: '1s', fill: 'freeze'})
+    this.circle.animate('r', {to: 10, dur: '1s', fill: 'freeze'}).emit('bringToFront')
   }
 
   ScatterGraphCircle.prototype.contract = function () {
