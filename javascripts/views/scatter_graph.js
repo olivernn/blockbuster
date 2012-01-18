@@ -1,6 +1,6 @@
 define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/event_stream', './../lib/jquery.zoomable'], function ($, SVG, tooltip, eventStream) {
 
-  var paper, elem, circleGroup
+  var  elem, circleGroup
 
   var storyColor = {
     'Discovery': 'rgb(122,73,28)',
@@ -29,22 +29,22 @@ define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/event_stream', '
 
   var normalizeX = function (val) {
     var total = paper.width(),
-        max = 1063.16,
+        max = Math.log(11420),
         unit = total / max
-    return unit * val
+    return (unit * Math.log(val))
   }
 
   var normalizeY = function (val) {
     var total = paper.height(),
-        max = 300,
+        max = 100,
         unit = total / max
     return total - (unit * val)
   }
 
   var filmToCircle = function (film) {
     return new SVG.Circle ({
-      'cx': normalizeX(film.attr('worldwide_gross')),
-      'cy': normalizeY(film.attr('budget')),
+      'cx': normalizeX(film.attr('profitability')),
+      'cy': normalizeY(film.attr('audience_score')),
       'r': 2,
       'fill': storyColor[film.attr('story')],
       'fill-opacity': 0.75,

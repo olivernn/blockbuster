@@ -2,6 +2,7 @@ define(['jquery'], function ($) {
 
   var Film = function (attributes) {
     this.attributes = attributes
+    this.attributes.profitability = this.attributes.worldwide_gross / this.attributes.budget * 100
     this.callbacks = {}
     Film.push(this)
   }
@@ -20,9 +21,19 @@ define(['jquery'], function ($) {
     return this.all()[0]
   }
 
+  Film.sortBy = function (attrName) {
+    return this.all().sort(function (a, b) {
+      if (a.attr(attrName) > b.attr(attrName)) return -1
+      if (b.attr(attrName) > a.attr(attrName)) return 1
+      return 0
+    })
+  }
+
   Film.load = function (fn) {
     $.getJSON('/data/data.json', function (films) {
-      films.forEach(function (film) { new Film (film) })
+      films.forEach(function (film) { 
+        if (film.budget > 0 && film.worldwide_gross > 0) new Film (film)
+      })
       fn()
     })
   }
@@ -58,6 +69,10 @@ define(['jquery'], function ($) {
         handler.apply(null, args)
       })
       return this
+    },
+
+    profitability: function () {
+      
     }
   }
 
