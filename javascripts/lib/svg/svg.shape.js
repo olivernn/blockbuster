@@ -33,9 +33,9 @@ define(['./svg.matrix'], function (Matrix) {
       return this.elem
     },
 
-    on: function (eventName, handler) {
+    on: function (eventName, handler, context) {
       if (!(eventName in this.callbacks)) this.callbacks[eventName] = []
-      this.callbacks[eventName].push(handler)
+      this.callbacks[eventName].push(handler.bind(context))
       return this
     },
 

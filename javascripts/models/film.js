@@ -71,8 +71,9 @@ define(['jquery'], function ($) {
       return this
     },
 
-    profitability: function () {
-      
+    select: function () {
+      Film.forEach(function (f) { f.emit('deselected') })
+      this.emit('selected')
     }
   }
 
