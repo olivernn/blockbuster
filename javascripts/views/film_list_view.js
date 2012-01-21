@@ -4,8 +4,28 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
 
   var init = function () {
     container = $('#film-list-view-container')
-    Film.on('searchResults', draw)
+
+    bindDomEvents()
+    bindFilmEvents()
+
     draw(Film.all())
+  }
+
+  var getFilmAnd = function (method) {
+    return function () {
+      var id = $(this).data('film-id')
+      Film.find(id)[method]()
+    }
+  }
+
+  var bindDomEvents = function () {
+    container
+      .delegate('li', 'mouseover', getFilmAnd('highlight'))
+      .delegate('li', 'mouseout', getFilmAnd('unhighlight'))
+  }
+
+  var bindFilmEvents = function () {
+    Film.on('searchResults', draw)
   }
 
   var draw = function (films) {

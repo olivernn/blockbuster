@@ -59,14 +59,20 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
       .on('deselected', this.contract.bind(this))
       .on('search:included', this.expand.bind(this))
       .on('search:excluded', this.contract.bind(this))
+      .on('highlight', this.expand.bind(this))
+      .on('unhighlight', this.contract.bind(this))
   }
 
   ScatterGraphCircle.prototype.toElem = function () {
     return this.circle = filmToCircle(this.film)
       .on('click', function () { this.film.select() }, this)
       .on('mouseout', tooltip.hide)
+      .on('mouseout', function () {
+        if (!this.film.isSelected()) this.contract()
+      }, this)
       .on('mouseover', function (e) {
         tooltip.show(this.film.attr('title'), {x: e.clientX, y: e.clientY})
+        this.expand()
       }, this)
   }
 
