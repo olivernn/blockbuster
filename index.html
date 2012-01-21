@@ -3,6 +3,8 @@
 
   <link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" media="screen">
   <link rel="stylesheet" href="/stylesheets/scatter_graph.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/stylesheets/film_list.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/stylesheets/header.css" type="text/css" media="screen">
 
   <script id="film-view-template" type="text/mustache">
     <article class='film-view'>
@@ -26,12 +28,24 @@
     </ul>
   </script>
 
+  <script id="search-template" type="text/mustache">
+    <form>
+      <input type='search' placeholder='Film title, Actor, Director'></input>
+    </form>
+  </script>
+
   <script data-main="/javascripts/application.js" src="/javascripts/vendor/require.js"></script>
 </head>
 <body>
   <div id='wrapper'>
+    <header>
+      <h1>BlockBuster</h1>
+    </header>
     <svg id='scatter-graph' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div id='film-view-container'></div>
-    <div id='film-list-view-container'></div>
+    <div id='right-pane'>
+      <div id='search-container'></div>
+      <div id='film-view-container'></div>
+      <div id='film-list-view-container'></div>
+    </div>
   </div>
 </body>
