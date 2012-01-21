@@ -3,8 +3,19 @@ header {
   border-top: 4px solid #333;
 
   h1 {
+    float:left;
     font-size: 1.6em;
     margin-top: 4px;
     margin-bottom: 4px;
+  }
+
+  &:before,
+  &:after {
+    content:"";
+    display:table;
+  }
+
+  &:after {
+    clear:both;
   }
 }

@@ -1,0 +1,7 @@
+#search-container {
+  float: right; }
+  #search-container form {
+    padding-top: 6px; }
+  #search-container input {
+    font-size: 1.1em;
+    width: 400px; }

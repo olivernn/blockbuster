@@ -1,13 +1,25 @@
-define(['jquery', './../lib/events'], function ($, eventModule) {
+define(['jquery', './../lib/events', './../vendor/lunr'], function ($, eventModule, Lunr) {
 
   var id = 0
+
+  var idx = Lunr("films", function () {
+    this.ref('id')
+    this.field('title', { multiplier: 10 })
+    this.field('director', { multiplier: 5 })
+    this.field('writer', { multiplier: 5 })
+    this.field('all_actors', { multiplier: 5 })
+    this.field('genre')
+    this.field('story')
+  })
 
   var Film = function (attributes) {
     this.attributes = attributes
     this.attributes.id = id++
+    this.attributes.all_actors = this.attributes.actors.join(' ')
     this.attributes.profitability = this.attributes.worldwide_gross / this.attributes.budget * 100
     this.callbacks = {}
     Film.push(this)
+    idx.add(this.attributes)
   }
 
   Film._collection = [];
@@ -57,17 +69,13 @@ define(['jquery', './../lib/events'], function ($, eventModule) {
   }
 
   Film.search = function (term) {
-    var results = this
-      .filter(function (film) {
-        var match = film.attr('title').match(term)
-        if (match) {
-          film.emit('search:included')
-          return true
-        } else {
-          film.emit('search:excluded')
-          return false
-        };
-      })
+    Film.forEachCall('excludeFromFilter')
+
+    var results = idx.search(term).map(function (id) {
+      var film = Film.find(id)
+      film.includeInFilter()
+      return film
+    })
 
     this.emit('searchResults', results)
     return results
@@ -108,6 +116,14 @@ define(['jquery', './../lib/events'], function ($, eventModule) {
 
     unhighlight: function () {
       this.emit('unhighlight')
+    },
+
+    excludeFromFilter: function () {
+      this.emit('search:excluded')
+    },
+
+    includeInFilter: function () {
+      this.emit('search:included')
     }
   }
 
