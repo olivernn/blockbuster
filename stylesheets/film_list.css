@@ -1,6 +1,4 @@
 #film-list-view-container ul {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -17,7 +15,6 @@
   padding: 6px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
   cursor: pointer; }
   #film-list-view-container li:hover {
     background-color: #e0e0e0;
@@ -29,3 +26,7 @@
     background-image: linear-gradient(top, #e0e0e0, #d1d1d1);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1');
     font-weight: bold; }
+  #film-list-view-container li:first-child {
+    border-top: none !important; }
+  #film-list-view-container li:last-child {
+    border-bottom: none !important; }

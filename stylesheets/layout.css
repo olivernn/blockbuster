@@ -1,12 +1,15 @@
 body {
   font-family: Helvetica;
-  color: #333; }
+  color: #333;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAG0lEQVQIHWP4//8/w7t374DUfwZGEIMBBpBlANumF1EAvFlVAAAAAElFTkSuQmCC) repeat; }
 
 #right-pane {
-  width: 162px;
+  width: 160px;
   height: 600px;
   overflow: hidden;
-  float: right; }
+  float: right;
+  background-color: #f8f9f9;
+  border: 1px solid #ccc; }
 
 #wrapper {
   width: 1024px;

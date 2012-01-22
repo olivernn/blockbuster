@@ -1,13 +1,16 @@
 body {
   font-family: Helvetica;
   color: #333;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAG0lEQVQIHWP4//8/w7t374DUfwZGEIMBBpBlANumF1EAvFlVAAAAAElFTkSuQmCC) repeat;
 }
 
 #right-pane {
-  width: 162px;
+  width: 160px;
   height: 600px;
   overflow: hidden;
   float: right;
+  background-color: rgb(248, 249, 249);
+  border: 1px solid #ccc;
 }
 
 #wrapper {
