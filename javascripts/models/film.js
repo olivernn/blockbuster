@@ -119,10 +119,12 @@ define(['jquery', './../lib/events', './../vendor/lunr'], function ($, eventModu
     },
 
     excludeFromFilter: function () {
+      this._selected = false
       this.emit('search:excluded')
     },
 
     includeInFilter: function () {
+      this._selected = true
       this.emit('search:included')
     }
   }

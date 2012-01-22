@@ -59,28 +59,43 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
       .on('deselected', this.contract.bind(this))
       .on('search:included', this.expand.bind(this))
       .on('search:excluded', this.contract.bind(this))
-      .on('highlight', this.expand.bind(this))
-      .on('unhighlight', this.contract.bind(this))
+      .on('highlight', this.highlight.bind(this))
+      .on('unhighlight', this.unhighlght.bind(this))
   }
 
   ScatterGraphCircle.prototype.toElem = function () {
     return this.circle = filmToCircle(this.film)
       .on('click', function () { this.film.select() }, this)
       .on('mouseout', tooltip.hide)
-      .on('mouseout', function () {
-        if (!this.film.isSelected()) this.contract()
-      }, this)
+      .on('mouseout', this.unhighlght.bind(this))
+      .on('mouseover', this.highlight.bind(this))
       .on('mouseover', function (e) {
         tooltip.show(this.film.attr('title'), {x: e.clientX, y: e.clientY})
-        this.expand()
       }, this)
+  }
+
+  ScatterGraphCircle.prototype.highlight = function () {
+    this.film.isSelected() ? this.blip() : this.expand()
+  }
+
+  ScatterGraphCircle.prototype.unhighlght = function () {
+    this.film.isSelected() ? this.unBlip() : this.contract()
+  }
+
+  ScatterGraphCircle.prototype.blip = function () {
+    this.circle.animate('r', {from: 10, to: 14, dur: '0.6s', fill: 'freeze'})
+  }
+
+  ScatterGraphCircle.prototype.unBlip = function () {
+    this.circle.animate('r', {from: 14, to: 10, dur: '0.6s', fill: 'freeze'})
   }
 
   ScatterGraphCircle.prototype.expand = function () {
-    this.circle.animate('r', {to: 10, dur: '1s', fill: 'freeze'}).emit('bringToFront')
+    this.circle.animate('r', {to: 10, dur: '1s', fill: 'freeze'})
   }
 
   ScatterGraphCircle.prototype.contract = function () {
+    if (this.film.isSelected()) return
     this.circle.animate('r', {to: 2, dur: '1s', fill: 'freeze'})
   }
 
