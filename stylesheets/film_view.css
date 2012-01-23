@@ -1,0 +1,16 @@
+#film-view-container article {
+  position: absolute;
+  top: 43px;
+  right: 0px;
+  height: 600px;
+  width: 240px;
+  background-color: #efefef;
+  box-shadow: -2px 0px 4px #e0e0e0;
+  border: 1px solid #ccc; }
+#film-view-container header {
+  font-size: 0.9em; }
+#film-view-container h2, #film-view-container h3 {
+  margin: 0;
+  padding: 0; }
+#film-view-container img {
+  width: 100px; }

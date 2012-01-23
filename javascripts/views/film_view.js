@@ -4,6 +4,15 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
 
   var init = function () {
     container = $('#film-view-container')
+    bindDomEvents()
+    bindModelEvents()
+  }
+
+  var bindDomEvents = function () {
+    
+  }
+
+  var bindModelEvents = function () {
     Film.on('selected', draw)
   }
 
