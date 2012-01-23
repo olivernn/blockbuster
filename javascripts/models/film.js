@@ -1,4 +1,4 @@
-define(['jquery', './../lib/events', './../vendor/lunr'], function ($, eventModule, Lunr) {
+define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensions/date'], function ($, eventModule, Lunr) {
 
   var id = 0
 
@@ -15,6 +15,7 @@ define(['jquery', './../lib/events', './../vendor/lunr'], function ($, eventModu
   var Film = function (attributes) {
     this.attributes = attributes
     this.attributes.id = id++
+    this.attributes.release_date = new Date (attributes.release_date)
     this.attributes.all_actors = this.attributes.actors.join(' ')
     this.attributes.profitability = this.attributes.worldwide_gross / this.attributes.budget * 100
     this.callbacks = {}
@@ -79,6 +80,44 @@ define(['jquery', './../lib/events', './../vendor/lunr'], function ($, eventModu
 
     this.emit('searchResults', results)
     return results
+  }
+
+  Film.findSimilarTo = function (film, attrs) {
+    var attrs = attrs || []
+
+    var attrWithinPercent = function (attrName, percent) {
+      var percent = percent || 0.1
+      return function (f) {
+        return (f.attr(attrName) > film.attr(attrName) * (1 - percent) && f.attr(attrName) < film.attr(attrName) * (1 + percent))
+      }
+    }
+
+    var attrEqual = function (attrName) {
+      return function (f) {
+        return f.attr(attrName) === film.attr(attrName)
+      }
+    }
+
+    var criteria = {
+      budget: attrWithinPercent('budget'),
+      runtime: attrWithinPercent('runtime'),
+      foreignGross: attrWithinPercent('foreign_gross'),
+      domesticGross: attrWithinPercent('domestic_gross'),
+      openingTheatres: attrWithinPercent('number_of_theatres_in_opening_weekend'),
+      leadStudio: attrEqual('lead_studio'),
+      rated: attrEqual('rated'),
+      releaseWeek: function (f) {
+        return f.attr('release_date').weekNumber() === film.attr('release_date').weekNumber()
+      }
+    }
+
+    return attrs
+      .reduce(function (scope, attr) {
+        return scope.filter(criteria[attr])
+      }, Film.all())
+      .map(function (f) {
+        f.emit('similarTo', film)
+      })
   }
 
   Film.prototype = {

@@ -9,11 +9,16 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
   }
 
   var bindDomEvents = function () {
-    
+    container
+      .delegate('change', 'form', findSimilarFilms)
   }
 
   var bindModelEvents = function () {
     Film.on('selected', draw)
+  }
+
+  var findSimilarFilms = function () {
+    Film.findSimilarTo(film, attrs)
   }
 
   var draw = function (film) {
