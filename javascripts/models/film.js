@@ -85,6 +85,9 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
   Film.findSimilarTo = function (film, attrs) {
     var attrs = attrs || []
 
+    this.emit('similaritySearch')
+    if (!attrs.length) return
+
     var attrWithinPercent = function (attrName, percent) {
       return function (f) {
         return (f.attr(attrName) > film.attr(attrName) * (1 - percent) && f.attr(attrName) < film.attr(attrName) * (1 + percent))
@@ -109,8 +112,6 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
         return f.attr('release_date').weekNumber() === film.attr('release_date').weekNumber()
       }
     }
-
-    this.emit('similaritySearch')
 
     return attrs
       .reduce(function (scope, attr) {

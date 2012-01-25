@@ -22,6 +22,7 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
     container
       .delegate('li', 'mouseover', getFilmAnd('highlight'))
       .delegate('li', 'mouseout', getFilmAnd('unhighlight'))
+      .delegate('li', 'click', getFilmAnd('select'))
   }
 
   var bindFilmEvents = function () {

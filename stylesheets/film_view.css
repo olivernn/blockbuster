@@ -14,3 +14,5 @@
   padding: 0; }
 #film-view-container img {
   width: 100px; }
+#film-view-container section {
+  font-size: 0.9em; }

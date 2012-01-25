@@ -18,9 +18,7 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
 
     findSimilarFilms: function (e) {
       var fieldValues = this.html.find('form').serializeArray().map(function (field) { return field.value })
-      if (fieldValues.length) {
-        Film.findSimilarTo(this.film, fieldValues)
-      }
+      Film.findSimilarTo(this.film, fieldValues)
     }
   }
 
