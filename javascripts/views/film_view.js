@@ -1,36 +1,28 @@
 define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot, Film) {
 
-  var container, film
+  var containerSelector = '#film-view-container'
 
-  var init = function () {
-    container = $('#film-view-container')
-    bindDomEvents()
-    bindModelEvents()
+  var FilmView = function (film) {
+    this.container = $(containerSelector)
+    this.film = film
   }
 
-  var bindDomEvents = function () {
-    container
-      .delegate('form', 'change', findSimilarFilms)
+  FilmView.prototype = {
+    render: function () {
+      this.html = poirot.filmView(this.film.attributes)
+      this.html
+        .delegate('form', 'change', this.findSimilarFilms.bind(this))
+
+      this.container.html(this.html)
+    },
+
+    findSimilarFilms: function (e) {
+      var fieldValues = this.html.find('form').serializeArray().map(function (field) { return field.value })
+      if (fieldValues.length) {
+        Film.findSimilarTo(this.film, fieldValues)
+      }
+    }
   }
 
-  var bindModelEvents = function () {
-    Film.on('selected', draw)
-  }
-
-  var findSimilarFilms = function () {
-    var fieldValues = $(this).serializeArray().map(function (field) { return field.value })
-    console.log(fieldValues)
-    if (fieldValues.length) {
-      Film.findSimilarTo(film, fieldValues)
-    };
-  }
-
-  var draw = function (f) {
-    film = f
-    container.html(poirot.filmView(film.attributes))
-  }
-
-  return {
-    init: init
-  }
+  return FilmView
 })

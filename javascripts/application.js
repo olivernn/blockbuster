@@ -5,13 +5,17 @@ require([
   './views/film_view',
   './views/film_list_view',
   './views/search_view'
-], function (d, scatterGraph, Film, filmView, filmListView, searchView) {
+], function (d, scatterGraph, Film, FilmView, filmListView, searchView) {
   scatterGraph.init()
   searchView.init()
 
   Film.load(function () {
-    filmView.init()
     filmListView.init()
     scatterGraph.draw(Film.all())
+  })
+
+  Film.on('selected', function (film) {
+    var filmView = new FilmView (film)
+    filmView.render()
   })
 })
