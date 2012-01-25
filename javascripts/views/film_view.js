@@ -1,6 +1,6 @@
 define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot, Film) {
 
-  var container
+  var container, film
 
   var init = function () {
     container = $('#film-view-container')
@@ -10,7 +10,7 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
 
   var bindDomEvents = function () {
     container
-      .delegate('change', 'form', findSimilarFilms)
+      .delegate('form', 'change', findSimilarFilms)
   }
 
   var bindModelEvents = function () {
@@ -18,10 +18,15 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
   }
 
   var findSimilarFilms = function () {
-    Film.findSimilarTo(film, attrs)
+    var fieldValues = $(this).serializeArray().map(function (field) { return field.value })
+    console.log(fieldValues)
+    if (fieldValues.length) {
+      Film.findSimilarTo(film, fieldValues)
+    };
   }
 
-  var draw = function (film) {
+  var draw = function (f) {
+    film = f
     container.html(poirot.filmView(film.attributes))
   }
 

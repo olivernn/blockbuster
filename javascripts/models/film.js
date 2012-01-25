@@ -86,7 +86,6 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
     var attrs = attrs || []
 
     var attrWithinPercent = function (attrName, percent) {
-      var percent = percent || 0.1
       return function (f) {
         return (f.attr(attrName) > film.attr(attrName) * (1 - percent) && f.attr(attrName) < film.attr(attrName) * (1 + percent))
       }
@@ -99,11 +98,11 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
     }
 
     var criteria = {
-      budget: attrWithinPercent('budget'),
-      runtime: attrWithinPercent('runtime'),
-      foreignGross: attrWithinPercent('foreign_gross'),
-      domesticGross: attrWithinPercent('domestic_gross'),
-      openingTheatres: attrWithinPercent('number_of_theatres_in_opening_weekend'),
+      budget: attrWithinPercent('budget', 0.05),
+      runtime: attrWithinPercent('runtime', 0.01),
+      foreignGross: attrWithinPercent('foreign_gross', 0.1),
+      domesticGross: attrWithinPercent('domestic_gross', 0.1),
+      openingTheatres: attrWithinPercent('number_of_theatres_in_opening_weekend', 0.01),
       leadStudio: attrEqual('lead_studio'),
       rated: attrEqual('rated'),
       releaseWeek: function (f) {
@@ -111,12 +110,15 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
       }
     }
 
+    this.emit('similaritySearch')
+
     return attrs
       .reduce(function (scope, attr) {
         return scope.filter(criteria[attr])
       }, Film.all())
       .map(function (f) {
         f.emit('similarTo', film)
+        return f
       })
   }
 

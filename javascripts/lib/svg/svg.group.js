@@ -16,8 +16,22 @@ define(['./svg.shape'], function (Shape) {
     }, Shape.prototype.toElem.call(this))
   }
 
-  Group.prototype.add = function (elem) {
-    this.children.push(elem)
+  Group.prototype.add = function (child) {
+    this.children.push(child)
+    if (this.elem) {
+      this.elem.appendChild(child.toElem())
+    }
+    return this
+  }
+
+  Group.prototype.empty = function () {
+    this.children = []
+
+    while (this.elem.lastChild) {
+      this.elem.removeChild(this.elem.lastChild)
+    }
+
+    return this
   }
 
   return Group
