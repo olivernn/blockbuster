@@ -9,83 +9,98 @@
   <link rel="stylesheet" href="/stylesheets/search_view.css" type="text/css" media="screen">
 
   <script id="film-view-template" type="text/mustache">
-    <article class='film-view'>
-      <header>
+    <article class='film-view {{story_class}}'>
+      <header class='main'>
         <h2>{{title}}</h2>
         <h3>{{genre}} | {{story}}</h3>
       </header>
 
-      <section>
-        <img src="{{poster_url}}"></img>
-        <p class='synopsis'>{{synopsis}}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum nisi non arcu dignissim porttitor. Duis eget quam nulla. Proin ac felis ut libero facilisis volutpat ac a diam.</p>
+      <section class='active'>
+        <header>
+          <h4>Synopsis</h4>
+        </header>
+        <div>
+          <img src="{{poster_url}}"></img>
+          <p class='synopsis'>{{synopsis}}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum nisi non arcu dignissim porttitor. Duis eget quam nulla. Proin ac felis ut libero facilisis volutpat ac a diam.</p>
+        </div>
       </section>
 
       <section>
-        <table>
-          <tr>
-            <th>Budget</th>
-            <td>{{budget}}</td>
-          </tr>
+        <header>
+          <h4>Details</h4>
+        </header>
+        <div>
+          <table>
+            <tr>
+              <th>Budget</th>
+              <td>{{budget}}</td>
+            </tr>
 
-          <tr>
-            <th>Worldwide Gross</th>
-            <td>{{worldwide_gross}}</td>
-          </tr>
+            <tr>
+              <th>Worldwide Gross</th>
+              <td>{{worldwide_gross}}</td>
+            </tr>
 
-          <tr>
-            <th>Director</th>
-            <td>{{director}}</td>
-          </tr>
+            <tr>
+              <th>Director</th>
+              <td>{{director}}</td>
+            </tr>
 
-          <tr>
-            <th>Actors</th>
-            <td>{{all_actors}}</td>
-          </tr>
+            <tr>
+              <th>Actors</th>
+              <td>{{all_actors}}</td>
+            </tr>
 
-          <tr>
-            <th>Rating</th>
-            <td>{{rated}}</td>
-          </tr>
+            <tr>
+              <th>Rating</th>
+              <td>{{rated}}</td>
+            </tr>
 
-          <tr>
-            <th>Runtime</th>
-            <td>{{runtime}}</td>
-          </tr>
-        </table>
+            <tr>
+              <th>Runtime</th>
+              <td>{{runtime}}</td>
+            </tr>
+          </table>
+        </div>
       </section>
 
       <section>
-        <form class='similar-criteria-form'>
-          <div class='field-wrap'>
-            <input type="checkbox" id="budget" name="budget" value="budget">
-            <label for="budget">Similar Budget</label>
-          </div>
+        <header>
+          <h4>Similar</h4>
+        </header>
+        <div>
+          <form class='similar-criteria-form'>
+            <div class='field-wrap'>
+              <input type="checkbox" id="budget" name="budget" value="budget">
+              <label for="budget">Similar Budget</label>
+            </div>
 
-          <div class='field-wrap'>
-            <input type="checkbox" id="runtime" name="runtime" value="runtime">
-            <label for="runtime">Similar Runtime</label>
-          </div>
+            <div class='field-wrap'>
+              <input type="checkbox" id="runtime" name="runtime" value="runtime">
+              <label for="runtime">Similar Runtime</label>
+            </div>
 
-          <div class='field-wrap'>
-            <input type="checkbox" id="domestic-gross" name="domestic-gross" value="domesticGross">
-            <label for="domestic-gross">Similar Domestic Gross</label>
-          </div>
+            <div class='field-wrap'>
+              <input type="checkbox" id="domestic-gross" name="domestic-gross" value="domesticGross">
+              <label for="domestic-gross">Similar Domestic Gross</label>
+            </div>
 
-          <div class='field-wrap'>
-            <input type="checkbox" id="opening-theatres" name="opening-theatres" value="openingTheatres">
-            <label for="opening-theatres">Similar Number of Opening Theatres</label>
-          </div>
+            <div class='field-wrap'>
+              <input type="checkbox" id="opening-theatres" name="opening-theatres" value="openingTheatres">
+              <label for="opening-theatres">Similar Number of Opening Theatres</label>
+            </div>
 
-          <div class='field-wrap'>
-            <input type="checkbox" id="release-week" name="release-week" value="releaseWeek">
-            <label for="release-week">Same Release Week</label>
-          </div>
+            <div class='field-wrap'>
+              <input type="checkbox" id="release-week" name="release-week" value="releaseWeek">
+              <label for="release-week">Same Release Week</label>
+            </div>
 
-          <div class='field-wrap'>
-            <input type="checkbox" id="lead-studio" name="lead-studio" value="leadStudio">
-            <label for="lead-studio">Same Lead Studio</label>
-          </div>
-        </form>
+            <div class='field-wrap'>
+              <input type="checkbox" id="lead-studio" name="lead-studio" value="leadStudio">
+              <label for="lead-studio">Same Lead Studio</label>
+            </div>
+          </form>
+        </div>
       </section>
     </article>
   </script>

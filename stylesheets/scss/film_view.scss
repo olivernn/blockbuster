@@ -1,25 +1,124 @@
+@import 'mixins';
+
 #film-view-container {
   article.film-view {
     border-radius: 2px;
     position: absolute;
     top: 43px;
     left: 0px;
-    height: 600px;
     width: 240px;
     background-color: #efefef;
-    box-shadow: -2px 0px 4px #e0e0e0;
+    box-shadow: 2px 0px 4px #e0e0e0;
     border: 1px solid #ccc;
+
 
     &.dragging {
       opacity: 0.9;
-      box-shadow: -2px 0px 10px #d0d0d0;
+      box-shadow: 2px 0px 10px #d0d0d0;
     }
   }
 
-  header {
+  header.main {
     border: none;
     font-size: 0.8em;
     cursor: move;
+    color: white;
+    border-bottom: 1px solid #aaa;
+    padding: 6px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  article.discovery header.main {
+    @include gradient(rgb(122,73,28));
+  }
+
+  article.escape header.main {
+    @include gradient(rgb(125, 0, 83));
+  }
+
+  article.journey-and-return header.main {
+    @include gradient(rgb(199,200,202));
+  }
+
+  article.comedy header.main {
+    @include gradient(rgb(34,164,151));
+  }
+
+  article.quest header.main {
+    @include gradient(rgb(144,200,133));
+  }
+
+  article.sacrifice header.main {
+    @include gradient(rgb(98,29,129));
+  }
+
+  article.wretched-excess header.main {
+    @include gradient(rgb(89,90,93));
+  }
+
+  article.fish-out-of-water header.main {
+    @include gradient(rgb(213,202,164));
+  }
+
+  article.maturation header.main {
+    @include gradient(rgb(204,56,33));
+  }
+
+  article.pursuit header.main {
+    @include gradient(rgb(161,71,141));
+  }
+
+  article.rivalry header.main {
+    @include gradient(rgb(66,171,72));
+  }
+
+  article.underdog header.main {
+    @include gradient(rgb(144,25,26));
+  }
+
+  article.love header.main {
+    @include gradient(rgb(144,200,133));
+  }
+
+  article.monster-force header.main {
+    @include gradient(rgb(231,4,28));
+  }
+
+  article.revenge header.main {
+    @include gradient(rgb(112,183,50));
+  }
+
+  article.transformation header.main {
+    @include gradient(rgb(169,147,38));
+  }
+
+  article.metamorphosis header.main {
+    @include gradient(rgb(69,70,72));
+  }
+
+  article.rescue header.main {
+    @include gradient(rgb(231,50,128));
+  }
+
+  article.tragedy header.main {
+    @include gradient(rgb(177,114,33));
+  }
+
+  article.rags-to-riches header.main {
+    @include gradient(rgb(49,60,146));
+  }
+
+  article.the-riddle header.main {
+    @include gradient(rgb(152,203,194));
+  }
+
+  article.temptation header.main {
+    @include gradient(rgb(211,147,126));
+  }
+
+  th, td {
+    text-align: left;
   }
 
   h2, h3 {
@@ -36,5 +135,37 @@
 
   section {
     font-size: 0.9em;
+
+    div {
+      padding: 6px;
+      border-bottom: 1px solid #aaa;
+      border-top: 1px solid #f5f5f5;
+    }
+
+    header {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #aaa;
+      padding: 6px;
+      background-color: #e0e0e0;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(224, 224, 224)), to(rgb(209, 209, 209)));
+      background-image: -webkit-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+      background-image: -moz-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+      background-image: -o-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+      background-image: -ms-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+      background-image: linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1');
+
+      h4 {
+        margin: 0;
+      }
+    }
+
+    div {
+      display: none;
+    }
+
+    &.active div {
+      display: block;
+    }
   }
 }

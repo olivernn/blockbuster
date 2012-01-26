@@ -3,18 +3,178 @@
   position: absolute;
   top: 43px;
   left: 0px;
-  height: 600px;
   width: 240px;
   background-color: #efefef;
-  box-shadow: -2px 0px 4px #e0e0e0;
+  box-shadow: 2px 0px 4px #e0e0e0;
   border: 1px solid #ccc; }
   #film-view-container article.film-view.dragging {
     opacity: 0.9;
-    box-shadow: -2px 0px 10px #d0d0d0; }
-#film-view-container header {
+    box-shadow: 2px 0px 10px #d0d0d0; }
+#film-view-container header.main {
   border: none;
   font-size: 0.8em;
-  cursor: move; }
+  cursor: move;
+  color: white;
+  border-bottom: 1px solid #aaa;
+  padding: 6px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+#film-view-container article.discovery header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#7a491c), to(#613a16));
+  background-image: -webkit-linear-gradient(top, #7a491c, #613a16);
+  background-image: -moz-linear-gradient(top, #7a491c, #613a16);
+  background-image: -o-linear-gradient(top, #7a491c, #613a16);
+  background-image: -ms-linear-gradient(top, #7a491c, #613a16);
+  background-image: linear-gradient(top, #7a491c, #613a16); }
+#film-view-container article.escape header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#7d0053), to(#5e003f));
+  background-image: -webkit-linear-gradient(top, #7d0053, #5e003f);
+  background-image: -moz-linear-gradient(top, #7d0053, #5e003f);
+  background-image: -o-linear-gradient(top, #7d0053, #5e003f);
+  background-image: -ms-linear-gradient(top, #7d0053, #5e003f);
+  background-image: linear-gradient(top, #7d0053, #5e003f); }
+#film-view-container article.journey-and-return header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c7c8ca), to(#b7b9bb));
+  background-image: -webkit-linear-gradient(top, #c7c8ca, #b7b9bb);
+  background-image: -moz-linear-gradient(top, #c7c8ca, #b7b9bb);
+  background-image: -o-linear-gradient(top, #c7c8ca, #b7b9bb);
+  background-image: -ms-linear-gradient(top, #c7c8ca, #b7b9bb);
+  background-image: linear-gradient(top, #c7c8ca, #b7b9bb); }
+#film-view-container article.comedy header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#22a497), to(#1d8b80));
+  background-image: -webkit-linear-gradient(top, #22a497, #1d8b80);
+  background-image: -moz-linear-gradient(top, #22a497, #1d8b80);
+  background-image: -o-linear-gradient(top, #22a497, #1d8b80);
+  background-image: -ms-linear-gradient(top, #22a497, #1d8b80);
+  background-image: linear-gradient(top, #22a497, #1d8b80); }
+#film-view-container article.quest header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#90c885), to(#7dbe70));
+  background-image: -webkit-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -moz-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -o-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -ms-linear-gradient(top, #90c885, #7dbe70);
+  background-image: linear-gradient(top, #90c885, #7dbe70); }
+#film-view-container article.sacrifice header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#621d81), to(#4f1768));
+  background-image: -webkit-linear-gradient(top, #621d81, #4f1768);
+  background-image: -moz-linear-gradient(top, #621d81, #4f1768);
+  background-image: -o-linear-gradient(top, #621d81, #4f1768);
+  background-image: -ms-linear-gradient(top, #621d81, #4f1768);
+  background-image: linear-gradient(top, #621d81, #4f1768); }
+#film-view-container article.wretched-excess header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#595a5d), to(#4a4b4d));
+  background-image: -webkit-linear-gradient(top, #595a5d, #4a4b4d);
+  background-image: -moz-linear-gradient(top, #595a5d, #4a4b4d);
+  background-image: -o-linear-gradient(top, #595a5d, #4a4b4d);
+  background-image: -ms-linear-gradient(top, #595a5d, #4a4b4d);
+  background-image: linear-gradient(top, #595a5d, #4a4b4d); }
+#film-view-container article.fish-out-of-water header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d5caa4), to(#cbbe8f));
+  background-image: -webkit-linear-gradient(top, #d5caa4, #cbbe8f);
+  background-image: -moz-linear-gradient(top, #d5caa4, #cbbe8f);
+  background-image: -o-linear-gradient(top, #d5caa4, #cbbe8f);
+  background-image: -ms-linear-gradient(top, #d5caa4, #cbbe8f);
+  background-image: linear-gradient(top, #d5caa4, #cbbe8f); }
+#film-view-container article.maturation header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cc3821), to(#b2311d));
+  background-image: -webkit-linear-gradient(top, #cc3821, #b2311d);
+  background-image: -moz-linear-gradient(top, #cc3821, #b2311d);
+  background-image: -o-linear-gradient(top, #cc3821, #b2311d);
+  background-image: -ms-linear-gradient(top, #cc3821, #b2311d);
+  background-image: linear-gradient(top, #cc3821, #b2311d); }
+#film-view-container article.pursuit header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a1478d), to(#8c3e7a));
+  background-image: -webkit-linear-gradient(top, #a1478d, #8c3e7a);
+  background-image: -moz-linear-gradient(top, #a1478d, #8c3e7a);
+  background-image: -o-linear-gradient(top, #a1478d, #8c3e7a);
+  background-image: -ms-linear-gradient(top, #a1478d, #8c3e7a);
+  background-image: linear-gradient(top, #a1478d, #8c3e7a); }
+#film-view-container article.rivalry header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#42ab48), to(#39953f));
+  background-image: -webkit-linear-gradient(top, #42ab48, #39953f);
+  background-image: -moz-linear-gradient(top, #42ab48, #39953f);
+  background-image: -o-linear-gradient(top, #42ab48, #39953f);
+  background-image: -ms-linear-gradient(top, #42ab48, #39953f);
+  background-image: linear-gradient(top, #42ab48, #39953f); }
+#film-view-container article.underdog header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#90191a), to(#761415));
+  background-image: -webkit-linear-gradient(top, #90191a, #761415);
+  background-image: -moz-linear-gradient(top, #90191a, #761415);
+  background-image: -o-linear-gradient(top, #90191a, #761415);
+  background-image: -ms-linear-gradient(top, #90191a, #761415);
+  background-image: linear-gradient(top, #90191a, #761415); }
+#film-view-container article.love header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#90c885), to(#7dbe70));
+  background-image: -webkit-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -moz-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -o-linear-gradient(top, #90c885, #7dbe70);
+  background-image: -ms-linear-gradient(top, #90c885, #7dbe70);
+  background-image: linear-gradient(top, #90c885, #7dbe70); }
+#film-view-container article.monster-force header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e7041c), to(#c90318));
+  background-image: -webkit-linear-gradient(top, #e7041c, #c90318);
+  background-image: -moz-linear-gradient(top, #e7041c, #c90318);
+  background-image: -o-linear-gradient(top, #e7041c, #c90318);
+  background-image: -ms-linear-gradient(top, #e7041c, #c90318);
+  background-image: linear-gradient(top, #e7041c, #c90318); }
+#film-view-container article.revenge header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#70b732), to(#619f2b));
+  background-image: -webkit-linear-gradient(top, #70b732, #619f2b);
+  background-image: -moz-linear-gradient(top, #70b732, #619f2b);
+  background-image: -o-linear-gradient(top, #70b732, #619f2b);
+  background-image: -ms-linear-gradient(top, #70b732, #619f2b);
+  background-image: linear-gradient(top, #70b732, #619f2b); }
+#film-view-container article.transformation header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a99326), to(#907d20));
+  background-image: -webkit-linear-gradient(top, #a99326, #907d20);
+  background-image: -moz-linear-gradient(top, #a99326, #907d20);
+  background-image: -o-linear-gradient(top, #a99326, #907d20);
+  background-image: -ms-linear-gradient(top, #a99326, #907d20);
+  background-image: linear-gradient(top, #a99326, #907d20); }
+#film-view-container article.metamorphosis header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#454648), to(#363738));
+  background-image: -webkit-linear-gradient(top, #454648, #363738);
+  background-image: -moz-linear-gradient(top, #454648, #363738);
+  background-image: -o-linear-gradient(top, #454648, #363738);
+  background-image: -ms-linear-gradient(top, #454648, #363738);
+  background-image: linear-gradient(top, #454648, #363738); }
+#film-view-container article.rescue header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e73280), to(#e01a70));
+  background-image: -webkit-linear-gradient(top, #e73280, #e01a70);
+  background-image: -moz-linear-gradient(top, #e73280, #e01a70);
+  background-image: -o-linear-gradient(top, #e73280, #e01a70);
+  background-image: -ms-linear-gradient(top, #e73280, #e01a70);
+  background-image: linear-gradient(top, #e73280, #e01a70); }
+#film-view-container article.tragedy header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#b17221), to(#97611c));
+  background-image: -webkit-linear-gradient(top, #b17221, #97611c);
+  background-image: -moz-linear-gradient(top, #b17221, #97611c);
+  background-image: -o-linear-gradient(top, #b17221, #97611c);
+  background-image: -ms-linear-gradient(top, #b17221, #97611c);
+  background-image: linear-gradient(top, #b17221, #97611c); }
+#film-view-container article.rags-to-riches header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#313c92), to(#29337b));
+  background-image: -webkit-linear-gradient(top, #313c92, #29337b);
+  background-image: -moz-linear-gradient(top, #313c92, #29337b);
+  background-image: -o-linear-gradient(top, #313c92, #29337b);
+  background-image: -ms-linear-gradient(top, #313c92, #29337b);
+  background-image: linear-gradient(top, #313c92, #29337b); }
+#film-view-container article.the-riddle header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#98cbc2), to(#84c1b6));
+  background-image: -webkit-linear-gradient(top, #98cbc2, #84c1b6);
+  background-image: -moz-linear-gradient(top, #98cbc2, #84c1b6);
+  background-image: -o-linear-gradient(top, #98cbc2, #84c1b6);
+  background-image: -ms-linear-gradient(top, #98cbc2, #84c1b6);
+  background-image: linear-gradient(top, #98cbc2, #84c1b6); }
+#film-view-container article.temptation header.main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#d3937e), to(#cb8067));
+  background-image: -webkit-linear-gradient(top, #d3937e, #cb8067);
+  background-image: -moz-linear-gradient(top, #d3937e, #cb8067);
+  background-image: -o-linear-gradient(top, #d3937e, #cb8067);
+  background-image: -ms-linear-gradient(top, #d3937e, #cb8067);
+  background-image: linear-gradient(top, #d3937e, #cb8067); }
+#film-view-container th, #film-view-container td {
+  text-align: left; }
 #film-view-container h2, #film-view-container h3 {
   margin: 0;
   padding: 0; }
@@ -25,3 +185,25 @@
   margin-right: auto; }
 #film-view-container section {
   font-size: 0.9em; }
+  #film-view-container section div {
+    padding: 6px;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #f5f5f5; }
+  #film-view-container section header {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #aaa;
+    padding: 6px;
+    background-color: #e0e0e0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e0e0e0), to(#d1d1d1));
+    background-image: -webkit-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -moz-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -o-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -ms-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: linear-gradient(top, #e0e0e0, #d1d1d1);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1'); }
+    #film-view-container section header h4 {
+      margin: 0; }
+  #film-view-container section div {
+    display: none; }
+  #film-view-container section.active div {
+    display: block; }
