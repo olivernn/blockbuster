@@ -1,4 +1,4 @@
-define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoomable', './../models/film', './scatter_graph_path'], function ($, SVG, ScatterGraphCircle, _, Film, ScatterGraphPath) {
+define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoomable', './../models/film', './../models/axis', './scatter_graph_path'], function ($, SVG, ScatterGraphCircle, _, Film, axis, ScatterGraphPath) {
 
   var  elem, circleGroup, pathGroup
 
@@ -7,6 +7,9 @@ define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoo
     paper = new SVG.Doc(document.querySelector('svg'))
     circleGroup = new SVG.Group
     pathGroup = new SVG.Group
+
+    axis.x.name('profitability')
+    axis.y.name('audience_score')
 
     circleGroup.attr('width', paper.width())
     circleGroup.attr('height', paper.height())
@@ -24,11 +27,11 @@ define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoo
 
   var draw = function (films) {
     films.forEach(function (film) {
-      var circle = new ScatterGraphCircle (film).toElem()
+      var circle = new ScatterGraphCircle (film, axis).toElem()
       circleGroup.add(circle)
 
       film.on('similarTo', function (otherFilm) {
-        var path = new ScatterGraphPath (film, otherFilm).toElem()
+        var path = new ScatterGraphPath (film, otherFilm, axis).toElem()
         pathGroup.add(path)
       })
     })

@@ -25,34 +25,9 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
     'Temptation': 'rgb(211,147,126)'
   }
 
-  var normalizeX = function (val) {
-    var total = paper.width(),
-        max = Math.log(11420),
-        unit = total / max
-    return (unit * Math.log(val))
-  }
-
-  var normalizeY = function (val) {
-    var total = paper.height(),
-        max = 100,
-        unit = total / max
-    return total - (unit * val)
-  }
-
-  var filmToCircle = function (film) {
-    return new SVG.Circle ({
-      'cx': normalizeX(film.attr('profitability')),
-      'cy': normalizeY(film.attr('audience_score')),
-      'r': 2,
-      'fill': storyColor[film.attr('story')],
-      'fill-opacity': 0.75,
-      'stroke': 'none',
-      'class': 'film'
-    })
-  }
-
-  var ScatterGraphCircle = function (film) {
+  var ScatterGraphCircle = function (film, axis) {
     this.film = film
+    this.axis = axis
 
     this.film
       .on('selected', this.expand.bind(this))
@@ -61,10 +36,32 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
       .on('search:excluded', this.contract.bind(this))
       .on('highlight', this.highlight.bind(this))
       .on('unhighlight', this.unhighlght.bind(this))
+
+    this.axis
+      .on('changed', this.axisChanged.bind(this))
+  }
+
+  ScatterGraphCircle.prototype.axisChanged = function () {
+    var point = this.axis.filmToPoint(this.film)
+
+    this.circle.animate('cx', {to: point.x, dur: '1s', fill: 'freeze'})
+    this.circle.animate('cy', {to: point.y, dur: '1s', fill: 'freeze'})
   }
 
   ScatterGraphCircle.prototype.toElem = function () {
-    return this.circle = filmToCircle(this.film)
+    var point = this.axis.filmToPoint(this.film)
+
+    this.circle = new SVG.Circle ({
+      'cx': point.x,
+      'cy': point.y,
+      'r': 2,
+      'fill': storyColor[this.film.attr('story')],
+      'fill-opacity': 0.75,
+      'stroke': 'none',
+      'class': 'film'
+    })
+
+    this.circle
       .on('click', function () { this.film.select() }, this)
       .on('mouseout', tooltip.hide)
       .on('mouseout', this.unhighlght.bind(this))
@@ -72,6 +69,8 @@ define(['jquery', './../lib/svg', './../lib/tooltip'], function ($, SVG, tooltip
       .on('mouseover', function (e) {
         tooltip.show(this.film.attr('title'), {x: e.clientX, y: e.clientY})
       }, this)
+
+    return this.circle
   }
 
   ScatterGraphCircle.prototype.highlight = function () {

@@ -52,6 +52,12 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
     return this.all()[0]
   }
 
+  Film.pluck = function (attrName) {
+    return this.map(function (f) {
+      return f.attr(attrName)
+    })
+  }
+
   Film.sortBy = function (attrName) {
     return this.all().sort(function (a, b) {
       if (a.attr(attrName) > b.attr(attrName)) return -1

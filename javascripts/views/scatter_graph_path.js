@@ -1,36 +1,26 @@
 define(['./../lib/svg'], function (SVG) {
 
-  var normalizeX = function (val) {
-    var total = 862,
-        max = Math.log(11420),
-        unit = total / max
-    return (unit * Math.log(val))
-  }
-
-  var normalizeY = function (val) {
-    var total = 602,
-        max = 100,
-        unit = total / max
-    return total - (unit * val)
-  }
-
-  var filmToPoint = function (film) {
-    return {
-      x: normalizeX(film.attr('profitability')),
-      y: normalizeY(film.attr('audience_score'))
-    }
-  }
-
-  var ScatterGraphPath = function (startFilm, endFilm) {
+  var ScatterGraphPath = function (startFilm, endFilm, axis) {
     this.startFilm = startFilm
     this.endFilm = endFilm
+    this.axis = axis
+
+    this.axis.on('changed', this.axisChanged.bind(this))
   }
 
   ScatterGraphPath.prototype.toElem = function () {
     this.line = new SVG.Line ({stroke: '#666', 'stroke-width': 1})
-    this.line.addPoint(filmToPoint(this.startFilm))
-    this.line.addPoint(filmToPoint(this.endFilm))
+    this.line.startPoint(this.axis.filmToPoint(this.startFilm))
+    this.line.endPoint(this.axis.filmToPoint(this.endFilm))
     return this.line
+  }
+
+  ScatterGraphPath.prototype.axisChanged = function () {
+    this.line.animate('x1', {to: this.axis.filmToPoint(this.startFilm).x, dur: '1s', fill: 'freeze'})
+    this.line.animate('y1', {to: this.axis.filmToPoint(this.startFilm).y, dur: '1s', fill: 'freeze'})
+
+    this.line.animate('x2', {to: this.axis.filmToPoint(this.endFilm).x, dur: '1s', fill: 'freeze'})
+    this.line.animate('y2', {to: this.axis.filmToPoint(this.endFilm).y, dur: '1s', fill: 'freeze'})
   }
 
   return ScatterGraphPath
