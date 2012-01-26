@@ -29,16 +29,16 @@
         <header>
           <h4>Details</h4>
         </header>
-        <div>
+        <div class='details-pane'>
           <table>
             <tr>
               <th>Budget</th>
-              <td>{{budget}}</td>
+              <td>{{millionDollars budget}}</td>
             </tr>
 
             <tr>
-              <th>Worldwide Gross</th>
-              <td>{{worldwide_gross}}</td>
+              <th>Gross</th>
+              <td>{{millionDollars worldwide_gross}}</td>
             </tr>
 
             <tr>
@@ -58,7 +58,7 @@
 
             <tr>
               <th>Runtime</th>
-              <td>{{runtime}}</td>
+              <td>{{secondsToTime runtime}}</td>
             </tr>
           </table>
         </div>
@@ -68,7 +68,7 @@
         <header>
           <h4>Similar</h4>
         </header>
-        <div>
+        <div class='similar-pane'>
           <form class='similar-criteria-form'>
             <div class='field-wrap'>
               <input type="checkbox" id="budget" name="budget" value="budget">

@@ -173,8 +173,24 @@
   background-image: -o-linear-gradient(top, #d3937e, #cb8067);
   background-image: -ms-linear-gradient(top, #d3937e, #cb8067);
   background-image: linear-gradient(top, #d3937e, #cb8067); }
+#film-view-container .field-wrap {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #f5f5f5; }
+#film-view-container .field-wrap:last-child {
+  border-bottom: none; }
+#film-view-container label {
+  font-size: 0.8em; }
+#film-view-container .details-pane, #film-view-container .similar-pane {
+  padding: 0; }
+#film-view-container table {
+  border-collapse: collapse; }
+#film-view-container th {
+  font-size: 0.8em; }
 #film-view-container th, #film-view-container td {
-  text-align: left; }
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #f5f5f5;
+  padding: 6px; }
 #film-view-container h2, #film-view-container h3 {
   margin: 0;
   padding: 0; }

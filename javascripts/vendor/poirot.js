@@ -1,8 +1,8 @@
-define(['jquery', './hogan'], function ($, Hogan) {
-  var viewFactory = function (template, partials) {
-    var compiledTemplate = Hogan.compile(template)
+define(['jquery', './handlebars', './../lib/handlebars_helpers'], function ($, Handlebars) {
+  viewFactory = function (template, partials) {
+    var compiledTemplate = Handlebars.compile(template)
     return function (data) {
-      return $(compiledTemplate.render(data, partials))
+      return $(compiledTemplate(data))
     }
   }
 
