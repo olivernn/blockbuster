@@ -1,17 +1,25 @@
 #film-view-container {
-  article {
+  article.film-view {
+    border-radius: 2px;
     position: absolute;
     top: 43px;
-    right: 0px;
+    left: 0px;
     height: 600px;
     width: 240px;
     background-color: #efefef;
     box-shadow: -2px 0px 4px #e0e0e0;
     border: 1px solid #ccc;
+
+    &.dragging {
+      opacity: 0.9;
+      box-shadow: -2px 0px 10px #d0d0d0;
+    }
   }
 
   header {
-    font-size: 0.9em;
+    border: none;
+    font-size: 0.8em;
+    cursor: move;
   }
 
   h2, h3 {
@@ -21,6 +29,9 @@
 
   img {
     width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   section {

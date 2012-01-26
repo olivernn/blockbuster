@@ -1,18 +1,27 @@
-#film-view-container article {
+#film-view-container article.film-view {
+  border-radius: 2px;
   position: absolute;
   top: 43px;
-  right: 0px;
+  left: 0px;
   height: 600px;
   width: 240px;
   background-color: #efefef;
   box-shadow: -2px 0px 4px #e0e0e0;
   border: 1px solid #ccc; }
+  #film-view-container article.film-view.dragging {
+    opacity: 0.9;
+    box-shadow: -2px 0px 10px #d0d0d0; }
 #film-view-container header {
-  font-size: 0.9em; }
+  border: none;
+  font-size: 0.8em;
+  cursor: move; }
 #film-view-container h2, #film-view-container h3 {
   margin: 0;
   padding: 0; }
 #film-view-container img {
-  width: 100px; }
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 #film-view-container section {
   font-size: 0.9em; }

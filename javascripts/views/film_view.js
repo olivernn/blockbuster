@@ -1,4 +1,4 @@
-define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot, Film) {
+define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.draggable'], function ($, poirot, Film) {
 
   var containerSelector = '#film-view-container'
 
@@ -12,6 +12,7 @@ define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot
       this.html = poirot.filmView(this.film.attributes)
       this.html
         .delegate('form', 'change', this.findSimilarFilms.bind(this))
+        .draggable({dragHandle: 'header'})
 
       this.container.html(this.html)
     },
