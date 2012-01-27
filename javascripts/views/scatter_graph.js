@@ -1,4 +1,13 @@
-define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoomable', './../models/film', './../models/axis', './scatter_graph_path'], function ($, SVG, ScatterGraphCircle, _, Film, axis, ScatterGraphPath) {
+define([
+  'jquery',
+  './../lib/svg',
+  './scatter_graph_circle',
+  './../lib/jquery.zoomable',
+  './../models/film',
+  './../models/axis',
+  './scatter_graph_path',
+  './axis_label_view'
+], function ($, SVG, ScatterGraphCircle, _, Film, axis, ScatterGraphPath, AxisLabelView) {
 
   var  elem, circleGroup, pathGroup
 
@@ -20,6 +29,8 @@ define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoo
 
     elem.zoomable(circleGroup)
 
+    axis.on('changed', drawAxisLabels)
+
     Film
       .on('loaded', draw)
       .on('similaritySearch', removePaths)
@@ -37,11 +48,19 @@ define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoo
       })
     })
 
+    drawAxisLabels()
+
     paper.draw(circleGroup)
   }
 
   var removePaths = function () {
     pathGroup.empty()
+  }
+
+  var drawAxisLabels = function () {
+    console.log(AxisLabelView)
+    new AxisLabelView ('x', axis).render()
+    new AxisLabelView ('y', axis).render()
   }
 
   return {

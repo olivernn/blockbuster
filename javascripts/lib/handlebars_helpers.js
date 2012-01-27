@@ -15,4 +15,15 @@ define(['./../vendor/handlebars'], function (Handlebars) {
   Handlebars.registerHelper('millionDollars', function (num) {
     return ["$ ", num, "m"].join('')
   })
+
+  Handlebars.registerHelper('humanize', function (str) {
+    var capitalizer = function (match) {
+      return match.toUpperCase()
+    }
+
+    return str
+      .replace(/_/g, ' ')
+      .replace(/^\D/g, capitalizer)
+      .replace(/\s\D/g, capitalizer)
+  })
 })

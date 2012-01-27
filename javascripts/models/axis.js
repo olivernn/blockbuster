@@ -1,13 +1,36 @@
 define(['./../lib/events', './film'], function (eventModule, Film) {
 
+  var possibleValues = {
+    x: [
+      'profitability',
+      'budget',
+      'worldwide_gross',
+      'domestic_gross',
+      'foreign_gross',
+      'box_office_average_per_cinema'
+    ],
+
+    y: [
+      'number_of_theatres_in_opening_weekend',
+      'audience_score',
+      'rotten_tomatoes',
+      'runtime',
+      'release_year_day'
+    ]
+  }
+
   var attributes = {},
       paperWidth = 850,
-      paperHeight = 560
+      paperHeight = 560,
+      axis
 
-  var axisName = function (axis) {
+  var axisName = function (a) {
     return function (val) {
-      if (val) attributes[axis].name = val
-      return attributes[axis].name
+      if (val) { 
+        attributes[a].name = val
+        axis.emit('changed')
+      }
+      return attributes[a].name
     }
   }
 
@@ -29,7 +52,8 @@ define(['./../lib/events', './film'], function (eventModule, Film) {
     return {
       name: axisName(axis),
       max: axisMax(axis),
-      min: axisMin(axis)
+      min: axisMin(axis),
+      possibleValues: possibleValues[axis]
     }
   }
 
@@ -43,7 +67,7 @@ define(['./../lib/events', './film'], function (eventModule, Film) {
     }
   }
 
-  var axis = {
+  axis = {
     x: makeAxis('x'),
     y: makeAxis('y'),
     filmToPoint: filmToPoint,

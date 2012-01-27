@@ -119,6 +119,17 @@
     </form>
   </script>
 
+  <script id="axis-label-template" type="text/mustache">
+    <div class='axis-label'>
+      <h3>{{humanize name}}</h3>
+      <ul>
+        {{#possibleValues}}
+          <li data-axis-label="{{.}}">{{humanize .}}</li>
+        {{/possibleValues}}
+      </ul>
+    </div>
+  </script>
+
   <script src="/javascripts/vendor/augment.min.js"></script>
   <script data-main="/javascripts/application.js" src="/javascripts/vendor/require.js"></script>
 </head>
@@ -128,10 +139,14 @@
       <h1>BlockBuster</h1>
       <div id='search-container'></div>
     </header>
-    <svg id='scatter-graph' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div id='right-pane'>
+    <section id='main-pane'>
+      <svg id='scatter-graph' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div id='x-axis-label-container'></div>
+      <div id='y-axis-label-container'></div>
+    </section>
+    <section id='right-pane'>
       <div id='film-list-view-container'></div>
-    </div>
+    </section>
   </div>
   <div id='film-view-container'></div>
 </body>
