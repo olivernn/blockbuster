@@ -23,6 +23,7 @@ define(['jquery', './../lib/svg', './scatter_graph_circle', './../lib/jquery.zoo
     Film
       .on('loaded', draw)
       .on('similaritySearch', removePaths)
+      .on('selected', removePaths)
   }
 
   var draw = function (films) {
