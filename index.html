@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/stylesheets/film_view.css" type="text/css" media="screen">
   <link rel="stylesheet" href="/stylesheets/header.css" type="text/css" media="screen">
   <link rel="stylesheet" href="/stylesheets/search_view.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/stylesheets/axis_label.css" type="text/css" media="screen">
 
   <script id="film-view-template" type="text/mustache">
     <article class='film-view {{story_class}}'>
@@ -120,7 +121,7 @@
   </script>
 
   <script id="axis-label-template" type="text/mustache">
-    <div class='axis-label'>
+    <div class='axis-label orientation-{{orientation}}'>
       <h3>{{humanize name}}</h3>
       <ul>
         {{#possibleValues}}
@@ -141,8 +142,8 @@
     </header>
     <section id='main-pane'>
       <svg id='scatter-graph' version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg"></svg>
-      <div id='x-axis-label-container'></div>
-      <div id='y-axis-label-container'></div>
+      <div id='x-axis-label-container' class='axis-label-container x-axis'></div>
+      <div id='y-axis-label-container' class='axis-label-container y-axis'></div>
     </section>
     <section id='right-pane'>
       <div id='film-list-view-container'></div>

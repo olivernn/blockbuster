@@ -3,6 +3,12 @@ body {
   color: #333;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAG0lEQVQIHWP4//8/w7t374DUfwZGEIMBBpBlANumF1EAvFlVAAAAAElFTkSuQmCC) repeat; }
 
+#main-pane {
+  float: left;
+  position: relative;
+  height: 600px;
+  width: 860px; }
+
 #right-pane {
   width: 160px;
   height: 600px;

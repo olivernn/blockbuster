@@ -7,3 +7,25 @@
   background-image: -ms-linear-gradient(top, $from, $to);
   background-image: linear-gradient(top, $from, $to);
 }
+
+@mixin grey-gradient {
+  background-color: #e0e0e0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(224, 224, 224)), to(rgb(209, 209, 209)));
+  background-image: -webkit-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+  background-image: -moz-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+  background-image: -o-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+  background-image: -ms-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+  background-image: linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1');
+}
+
+@mixin light-grey-gradient {
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(238, 238, 238)), to(rgb(225, 225, 225)));
+  background-image: -webkit-linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
+  background-image: -moz-linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
+  background-image: -o-linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
+  background-image: -ms-linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
+  background-image: linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eeeeee', EndColorStr='#e1e1e1');
+}
