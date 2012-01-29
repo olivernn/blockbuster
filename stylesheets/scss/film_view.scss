@@ -18,6 +18,17 @@
     }
   }
 
+  .close {
+    font-size: 0.7em;
+    float:right;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    };
+  }
+
   header.main {
     border: none;
     font-size: 0.8em;

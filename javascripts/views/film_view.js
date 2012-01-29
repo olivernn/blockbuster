@@ -5,6 +5,8 @@ define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.dra
   var FilmView = function (film) {
     this.container = $(containerSelector)
     this.film = film
+    this.film
+      .on('deselected', this.close.bind(this))
   }
 
   FilmView.prototype = {
@@ -15,6 +17,7 @@ define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.dra
       this.html
         .delegate('form', 'change', this.findSimilarFilms.bind(this))
         .delegate('section header', 'click', this.activateSection.bind(this))
+        .delegate('.close', 'click', this.deselect.bind(this))
         .draggable({dragHandle: 'header'})
 
       this.container.html(this.html)
@@ -30,6 +33,15 @@ define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.dra
       var header = $(e.target)
       this.html.find('.active').removeClass('active')
       header.parents('section').addClass('active')
+    },
+
+    deselect: function (e) {
+      e.preventDefault()
+      this.film.deselect()
+    },
+
+    close: function () {
+      this.html.empty()
     }
   }
 

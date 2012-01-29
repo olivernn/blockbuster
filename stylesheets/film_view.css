@@ -10,6 +10,13 @@
   #film-view-container article.film-view.dragging {
     opacity: 0.9;
     box-shadow: 2px 0px 10px #d0d0d0; }
+#film-view-container .close {
+  font-size: 0.7em;
+  float: right;
+  color: white;
+  text-decoration: none; }
+  #film-view-container .close:hover {
+    text-decoration: underline; }
 #film-view-container header.main {
   border: none;
   font-size: 0.8em;
