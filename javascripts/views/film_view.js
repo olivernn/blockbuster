@@ -10,7 +10,7 @@ define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.dra
   FilmView.prototype = {
     render: function () {
       var attributes = this.film.attributes
-      attributes.story_class = this.film.attr('story').toLowerCase().replace(/\s/g, '-').replace('&', 'and')
+      attributes.story_class = this.film.normalizedStory().replace(/\s/g, '-')
       this.html = poirot.filmView(this.film.attributes)
       this.html
         .delegate('form', 'change', this.findSimilarFilms.bind(this))

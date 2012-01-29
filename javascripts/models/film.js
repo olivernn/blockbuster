@@ -143,6 +143,12 @@ define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensio
       return eventModule.emit.apply(this, arguments)
     },
 
+    normalizedStory: function () {
+      if (!this.attr('story')) return
+
+      return this.attr('story').toLowerCase().replace('&', 'and')
+    },
+
     select: function () {
       Film.forEachCall('deselect')
       this._selected = true
