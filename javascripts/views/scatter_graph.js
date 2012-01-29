@@ -27,7 +27,8 @@ define([
 
     circleGroup.add(pathGroup)
 
-    elem.zoomable(circleGroup)
+    // disabled for now because its not working properly
+    // elem.zoomable(circleGroup)
 
     axis.on('changed', drawAxisLabels)
 
