@@ -59,7 +59,6 @@ define([
   }
 
   var drawAxisLabels = function () {
-    console.log(AxisLabelView)
     new AxisLabelView ('x', axis).render()
     new AxisLabelView ('y', axis).render()
   }
