@@ -18,14 +18,6 @@ define(['./svg.shape'], function (Shape) {
     this.attributes.x2 = point.x
     this.attributes.y2 = point.y
   }
-  // 
-  // Line.prototype.toElem = function () {
-  //   this.attributes.points = this.points.map(function (point) {
-  //     return [point.x, point.y].join(' ')
-  //   }).join(',')
-  // 
-  //   return Shape.prototype.toElem.call(this)
-  // }
 
   return Line
 })
