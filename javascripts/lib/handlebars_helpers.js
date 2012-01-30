@@ -26,4 +26,8 @@ define(['./../vendor/handlebars'], function (Handlebars) {
       .replace(/^\D/g, capitalizer)
       .replace(/\s\D/g, capitalizer)
   })
+
+  Handlebars.registerHelper('sentence', function (arr) {
+    return [arr.slice(0, -1).join(', '), arr[arr.length - 1]].join(' &amp; ')
+  })
 })
