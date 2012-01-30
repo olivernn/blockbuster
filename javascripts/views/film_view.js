@@ -1,4 +1,4 @@
-define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.draggable'], function ($, poirot, Film) {
+define(['jquery', 'vendor/poirot', 'models/film', 'lib/jquery.draggable'], function ($, poirot, Film) {
 
   var containerSelector = '#film-view-container'
 

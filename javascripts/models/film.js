@@ -1,4 +1,4 @@
-define(['jquery', './../lib/events', './../vendor/lunr', './../lib/core_extensions/date'], function ($, eventModule, Lunr) {
+define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], function ($, eventModule, Lunr) {
 
   var id = 0
 

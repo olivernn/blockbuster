@@ -1,4 +1,4 @@
-define(['./../lib/svg'], function (SVG) {
+define(['lib/svg'], function (SVG) {
 
   var ScatterGraphPath = function (startFilm, endFilm, axis) {
     this.startFilm = startFilm

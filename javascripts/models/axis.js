@@ -1,4 +1,4 @@
-define(['./../lib/events', './film'], function (eventModule, Film) {
+define(['lib/events', './film'], function (eventModule, Film) {
 
   var possibleValues = {
     x: [

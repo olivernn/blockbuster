@@ -1,4 +1,4 @@
-define(['jquery', './../vendor/poirot', './../models/film'], function ($, poirot, Film) {
+define(['jquery', 'vendor/poirot', 'models/film'], function ($, poirot, Film) {
 
   var container, html
 

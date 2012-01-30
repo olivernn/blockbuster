@@ -1,4 +1,4 @@
-define(['jquery', './../vendor/poirot'], function ($, poirot) {
+define(['jquery', 'vendor/poirot'], function ($, poirot) {
 
   var AxisLabelView = function (orientation, axis) {
     this.container = $('#' + orientation + '-axis-label-container')

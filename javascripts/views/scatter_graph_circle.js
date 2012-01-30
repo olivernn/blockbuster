@@ -1,4 +1,4 @@
-define(['jquery', './../lib/svg', './../lib/tooltip', './../lib/story_color'], function ($, SVG, tooltip, storyColor) {
+define(['jquery', 'lib/svg', 'lib/tooltip', 'lib/story_color'], function ($, SVG, tooltip, storyColor) {
 
   var ScatterGraphCircle = function (film, axis) {
     this.film = film
