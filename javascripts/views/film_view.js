@@ -41,7 +41,7 @@ define(['jquery', './../vendor/poirot', './../models/film', './../lib/jquery.dra
     },
 
     close: function () {
-      this.html.empty()
+      this.container.empty()
     }
   }
 
