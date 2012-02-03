@@ -14,16 +14,16 @@ class Film < OpenStruct
       rotten_tomatoes: rotten_tomatoes.to_i,
       baftas: baftas,
       oscars: oscars,
-      box_office_average_per_cinema: box_office_average_per_cinema.to_i,
-      budget: budget.to_f,
-      domestic_gross: domestic_gross.to_f,
-      foreign_gross: foreign_gross.to_f,
-      worldwide_gross: worldwide_gross.to_f,
+      box_office_average_per_cinema: box_office_average_per_us_cinema.to_i,
+      budget: normalized_budget,
+      domestic_gross: normalized_domestic_gross,
+      foreign_gross: normalized_foreign_gross,
+      worldwide_gross: normalized_worldwide_gross,
       title: film,
       genre: genre,
       story: story,
       lead_studio: lead_studio,
-      market_profitability: market_profitability.to_f,
+      market_profitability: normalized_profitability,
       number_of_theatres_in_opening_weekend: number_of_theatres_in_opening_weekend.to_i,
       year: year.to_i,
       release_date: released,
@@ -46,23 +46,11 @@ class Film < OpenStruct
     end
   end
 
-  [:budget, :domestic_gross, :foreign_gross].each do |method_name|
+  [:budget, :domestic_gross, :foreign_gross, :worldwide_gross, :profitability].each do |method_name|
     define_method "normalized_#{method_name}" do
       value = send(method_name)
       return 0.0 if value.nil?
-      value.size >= 6 ? value.gsub('$','').to_f / 1000000 : value.gsub('$','').to_f
-    end
-  end
-
-  def normalized_profitability
-    return 0.0 if market_profitability.nil?
-
-    if market_profitability == "11,420.00"
-      market_profitability.to_f
-    elsif market_profitability.match(/%$/)
-      market_profability.to_f
-    else
-      market_profability.to_f * 100
+      value.gsub('$','').gsub(',', '').to_f
     end
   end
 
