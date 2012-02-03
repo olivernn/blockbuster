@@ -1,6 +1,34 @@
-#radar-graph {
-  width: 160px;
-  height: 160px;
-  border: 1px solid #ccc;
-  border-left: none;
-  background-color: white; }
+.radar-graph-wrapper {
+  position: relative; }
+  .radar-graph-wrapper #radar-graph:hover + .label-group {
+    opacity: 1; }
+  .radar-graph-wrapper .label-group {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-in-out; }
+  .radar-graph-wrapper label {
+    position: absolute;
+    font-size: 0.7em;
+    padding: 2px;
+    background-color: #efefef;
+    border-radius: 3px; }
+    .radar-graph-wrapper label.audience-score {
+      bottom: 7px;
+      right: -11px; }
+    .radar-graph-wrapper label.budget {
+      top: 98px;
+      left: -30px; }
+    .radar-graph-wrapper label.worldwide-gross {
+      top: 11px;
+      left: -57px; }
+    .radar-graph-wrapper label.theatres-in-opening-weekend {
+      top: 6px;
+      right: -60px; }
+    .radar-graph-wrapper label.profitability {
+      bottom: 55px;
+      right: -50px; }
+  .radar-graph-wrapper #radar-graph {
+    width: 160px;
+    height: 160px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: white; }
