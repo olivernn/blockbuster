@@ -9,7 +9,7 @@ module ImdbData
   base_uri "http://www.imdbapi.com/"
   format :json
   
-  FIELDS_TO_RETURN = ["Rated", "Released", "Director", "Writer", "Actors", "Poster", "Runtime"]
+  FIELDS_TO_RETURN = ["Rated", "Released", "Director", "Writer", "Actors", "Poster", "Runtime", "Plot"]
   
   def fetch(title, year = "")
     response = get("?t=#{CGI.escape(title.to_s)}&y=#{CGI.escape(year.to_s)}&tomatoes=false")

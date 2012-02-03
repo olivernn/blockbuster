@@ -15,15 +15,15 @@ class Film < OpenStruct
       baftas: baftas,
       oscars: oscars,
       box_office_average_per_cinema: box_office_average_per_cinema.to_i,
-      budget: normalized_budget,
-      domestic_gross: normalized_domestic_gross,
-      foreign_gross: normalized_foreign_gross,
+      budget: budget.to_f,
+      domestic_gross: domestic_gross.to_f,
+      foreign_gross: foreign_gross.to_f,
       worldwide_gross: worldwide_gross.to_f,
       title: film,
       genre: genre,
       story: story,
       lead_studio: lead_studio,
-      market_profitability: normalized_profitability,
+      market_profitability: market_profitability.to_f,
       number_of_theatres_in_opening_weekend: number_of_theatres_in_opening_weekend.to_i,
       year: year.to_i,
       release_date: released,
@@ -33,7 +33,8 @@ class Film < OpenStruct
       writer: writer,
       poster_url: poster,
       runtime: runtime_seconds,
-      rated: rated
+      rated: rated,
+      plot: plot
     }
   end
 
