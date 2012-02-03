@@ -1,4 +1,4 @@
-define(['jquery', './handlebars', './../lib/handlebars_helpers'], function ($, Handlebars) {
+define(['jquery', './handlebars', 'lib/handlebars_helpers'], function ($, Handlebars) {
   viewFactory = function (template, partials) {
     var compiledTemplate = Handlebars.compile(template)
     return function (data) {

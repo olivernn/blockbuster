@@ -1,4 +1,4 @@
-define(['./../vendor/handlebars'], function (Handlebars) {
+define(['vendor/handlebars'], function (Handlebars) {
   Handlebars.registerHelper('secondsToTime', function (sec) {
     var hours = parseInt(sec / 3600, 10),
         minutes = parseInt((sec - (hours * 3600)) / 60, 10)
