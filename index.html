@@ -46,6 +46,11 @@
             </tr>
 
             <tr>
+              <th>Profitability</th>
+              <td>{{percentage profitability}}</td>
+            </tr>
+
+            <tr>
               <th>Director</th>
               <td>{{director}}</td>
             </tr>
@@ -63,6 +68,25 @@
             <tr>
               <th>Runtime</th>
               <td>{{secondsToTime runtime}}</td>
+            </tr>
+
+            {{#has_oscars}}
+              <tr>
+                <th>Oscars</th>
+                <td>{{sentence oscars}}</td>
+              </tr>
+            {{/has_oscars}}
+
+            {{#has_baftas}}
+              <tr>
+                <th>Baftas</th>
+                <td>{{sentence baftas}}</td>
+              </tr>
+            {{/has_baftas}}
+
+            <tr>
+              <th>Released</th>
+              <td>{{date release_date}}</td>
             </tr>
           </table>
         </div>
@@ -90,8 +114,18 @@
             </div>
 
             <div class='field-wrap'>
+              <input type="checkbox" id="profitability" name="profitability" value="profitability">
+              <label for="profitability">Similar Profitability</label>
+            </div>
+
+            <div class='field-wrap'>
               <input type="checkbox" id="opening-theatres" name="opening-theatres" value="openingTheatres">
               <label for="opening-theatres">Similar Number of Opening Theatres</label>
+            </div>
+
+            <div class='field-wrap'>
+              <input type="checkbox" id="average-per-cinema" name="average-per-cinema" value="averagePerCinema">
+              <label for="average-per-cinema">Similar Box Office Avg per Cinema</label>
             </div>
 
             <div class='field-wrap'>

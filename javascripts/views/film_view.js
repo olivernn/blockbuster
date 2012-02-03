@@ -2,6 +2,14 @@ define(['jquery', 'vendor/poirot', 'models/film', 'lib/jquery.draggable'], funct
 
   var containerSelector = '#film-view-container'
 
+  var filmPresenter = function (film) {
+    return $.extend({}, film.attributes, {
+      story_class: film.normalizedStory().replace(/\s/g, '-'),
+      has_oscars: !!film.attr('oscars'),
+      has_baftas: !!film.attr('baftas')
+    })
+  }
+
   var FilmView = function (film) {
     this.container = $(containerSelector)
     this.film = film
@@ -11,9 +19,7 @@ define(['jquery', 'vendor/poirot', 'models/film', 'lib/jquery.draggable'], funct
 
   FilmView.prototype = {
     render: function () {
-      var attributes = this.film.attributes
-      attributes.story_class = this.film.normalizedStory().replace(/\s/g, '-')
-      this.html = poirot.filmView(this.film.attributes)
+      this.html = poirot.filmView(filmPresenter(this.film))
       this.html
         .delegate('form', 'change', this.findSimilarFilms.bind(this))
         .delegate('section header', 'click', this.activateSection.bind(this))

@@ -107,12 +107,14 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     }
 
     var criteria = {
-      budget: attrWithinPercent('budget', 0.05),
-      runtime: attrWithinPercent('runtime', 0.01),
+      budget: attrWithinPercent('budget', 0.1),
+      runtime: attrWithinPercent('runtime', 0.05),
+      profitability: attrWithinPercent('profitability', 0.1),
       foreignGross: attrWithinPercent('foreign_gross', 0.1),
       domesticGross: attrWithinPercent('domestic_gross', 0.1),
       openingTheatres: attrWithinPercent('number_of_theatres_in_opening_weekend', 0.01),
       leadStudio: attrEqual('lead_studio'),
+      averagePerCinema: attrWithinPercent('box_office_average_per_cinema', 0.1),
       rated: attrEqual('rated'),
       releaseWeek: function (f) {
         return f.attr('release_date').weekNumber() === film.attr('release_date').weekNumber()
