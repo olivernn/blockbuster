@@ -12,7 +12,6 @@ body {
 #right-pane {
   width: 160px;
   height: 600px;
-  overflow-y: hidden;
   float: right;
   background-color: #f8f9f9;
   border: 1px solid #ccc; }

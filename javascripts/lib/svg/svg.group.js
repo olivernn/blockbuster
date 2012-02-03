@@ -1,7 +1,7 @@
 define(['./svg.shape'], function (Shape) {
-  var Group = function () {
+  var Group = function (attributes) {
     this.children = []
-    this.attributes = {}
+    this.attributes = attributes || {}
     this.callbacks = {}
   }
 
@@ -26,6 +26,8 @@ define(['./svg.shape'], function (Shape) {
 
   Group.prototype.empty = function () {
     this.children = []
+
+    if (!this.elem) return this
 
     while (this.elem.lastChild) {
       this.elem.removeChild(this.elem.lastChild)
