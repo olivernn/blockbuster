@@ -42,7 +42,7 @@ define(['jquery', 'lib/svg', 'lib/tooltip', 'lib/story_color'], function ($, SVG
       .on('mouseout', this.unhighlght.bind(this))
       .on('mouseover', this.highlight.bind(this))
       .on('mouseover', function (e) {
-        tooltip.show(this.film.attr('title'), {x: e.clientX, y: e.clientY})
+        tooltip.show(this.film, {x: e.pageX, y: e.pageY})
       }, this)
 
     return this.circle

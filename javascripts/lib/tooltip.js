@@ -1,29 +1,25 @@
-define(['jquery'], function ($) {
+define(['jquery', 'models/axis', 'vendor/poirot'], function ($, axis, poirot) {
 
-  var elem = $('<div>')
+  var elem
 
-  elem.css({
-    position: 'absolute',
-    border: '1px solid #666',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    padding: '2px',
-    borderRadius: '2px',
-    color: '#333'
-  })
+  var generateFilmAttrs = function (film) {
+    return {
+      story_class: film.normalizedStory().replace(/\s/g, '-'),
+      title: film.attr('title'),
+      x_name: axis.x.name(),
+      x_val: film.attr(axis.x.name()),
+      y_name: axis.y.name(),
+      y_val: film.attr(axis.y.name())
+    }
+  }
 
-  var show = function (message, point) {
-    elem.text(message)
-
-    elem.css({
-      left: point.x + 10,
-      top: point.y + 10
-    })
-
+  var show = function (film, pos) {
+    elem = poirot.tooltip(generateFilmAttrs(film)).css({left: pos.x + 10, top: pos.y + 10})
     $(document.body).append(elem)
   }
 
   var hide = function () {
-    elem.remove()
+    elem.fadeOut(200)
   }
 
   return {

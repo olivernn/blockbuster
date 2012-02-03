@@ -30,4 +30,8 @@ define(['vendor/handlebars'], function (Handlebars) {
   Handlebars.registerHelper('sentence', function (arr) {
     return [arr.slice(0, -1).join(', '), arr[arr.length - 1]].join(' &amp; ')
   })
+
+  Handlebars.registerHelper('round2', function (n) {
+    return parseInt(n, 10).toFixed(2)
+  })
 })

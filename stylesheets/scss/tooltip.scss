@@ -1,0 +1,136 @@
+@import 'mixins';
+
+.tooltip {
+  opacity: 0.9;
+  width: 160px;
+  position: absolute;
+  border-radius: 2px;
+  color: #333;
+  background-color: #efefef;
+  box-shadow: 2px 0px 4px #e0e0e0;
+  border: 1px solid #ccc;
+
+  header {
+    border: none;
+    padding: 2px;
+    color: white;
+  }
+
+  section {
+    border: none;
+    padding: 0;
+  }
+
+  &.discovery header {
+    @include gradient(rgb(122,73,28));
+  }
+
+  &.escape header {
+    @include gradient(rgb(125, 0, 83));
+  }
+
+  &.journey-and-return header {
+    @include gradient(rgb(199,200,202));
+  }
+
+  &.comedy header {
+    @include gradient(rgb(34,164,151));
+  }
+
+  &.quest header {
+    @include gradient(rgb(144,200,133));
+  }
+
+  &.sacrifice header {
+    @include gradient(rgb(98,29,129));
+  }
+
+  &.wretched-excess header {
+    @include gradient(rgb(89,90,93));
+  }
+
+  &.fish-out-of-water header {
+    @include gradient(rgb(213,202,164));
+  }
+
+  &.maturation header {
+    @include gradient(rgb(204,56,33));
+  }
+
+  &.pursuit header {
+    @include gradient(rgb(161,71,141));
+  }
+
+  &.rivalry header {
+    @include gradient(rgb(66,171,72));
+  }
+
+  &.underdog header {
+    @include gradient(rgb(144,25,26));
+  }
+
+  &.love header {
+    @include gradient(rgb(144,200,133));
+  }
+
+  &.monster-force header {
+    @include gradient(rgb(231,4,28));
+  }
+
+  &.revenge header {
+    @include gradient(rgb(112,183,50));
+  }
+
+  &.transformation header {
+    @include gradient(rgb(169,147,38));
+  }
+
+  &.metamorphosis header {
+    @include gradient(rgb(69,70,72));
+  }
+
+  &.rescue header {
+    @include gradient(rgb(231,50,128));
+  }
+
+  &.tragedy header {
+    @include gradient(rgb(177,114,33));
+  }
+
+  &.rags-to-riches header {
+    @include gradient(rgb(49,60,146));
+  }
+
+  &.the-riddle header {
+    @include gradient(rgb(152,203,194));
+  }
+
+  &.temptation header {
+    @include gradient(rgb(211,147,126));
+  }
+
+  h4 {
+    font-size: 0.7em;
+    margin: 2px;
+  }
+
+  table {
+    width: 160px;
+    border-collapse:collapse;
+  }
+
+  th, td {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #f5f5f5;
+    padding: 2px;
+    font-size: 0.7em;
+
+  }
+
+  tr:last-child {
+    th, td {
+      border-bottom: none;
+    }
+  }
+}

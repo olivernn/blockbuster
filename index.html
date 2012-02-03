@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/stylesheets/header.css" type="text/css" media="screen">
   <link rel="stylesheet" href="/stylesheets/search_view.css" type="text/css" media="screen">
   <link rel="stylesheet" href="/stylesheets/axis_label.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/stylesheets/tooltip.css" type="text/css" media="screen">
 
   <script id="film-view-template" type="text/mustache">
     <article class='film-view {{story_class}}'>
@@ -130,6 +131,26 @@
           <li data-axis-label="{{.}}">{{humanize .}}</li>
         {{/possibleValues}}
       </ul>
+    </div>
+  </script>
+
+  <script id="tooltip-template" type="text/mustache">
+    <div class='tooltip {{story_class}}'>
+      <header>
+        <h4>{{title}}</h4>
+      </header>
+      <section>
+        <table>
+          <tr>
+            <th>{{humanize x_name}}</th>
+            <td>{{round2 x_val}}</td>
+          </tr>
+          <tr>
+            <th>{{humanize y_name}}</th>
+            <td>{{round2 y_val}}</td>
+          </tr>
+        </table>
+      </section>
     </div>
   </script>
 
