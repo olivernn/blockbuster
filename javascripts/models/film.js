@@ -4,12 +4,13 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
 
   var idx = Lunr("films", function () {
     this.ref('id')
-    this.field('title', { multiplier: 10 })
-    this.field('director', { multiplier: 5 })
-    this.field('writer', { multiplier: 5 })
-    this.field('all_actors', { multiplier: 5 })
-    this.field('genre')
-    this.field('story')
+    this.field('title', { multiplier: 100 })
+    this.field('director', { multiplier: 20 })
+    this.field('writer', { multiplier: 20 })
+    this.field('all_actors', { multiplier: 20 })
+    this.field('genre', { multiplier: 5 })
+    this.field('story', { multiplier: 5 })
+    this.field('plot')
   })
 
   var Film = function (attributes) {
@@ -67,7 +68,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
   }
 
   Film.load = function (fn) {
-    $.getJSON('/data/data.json', function (films) {
+    $.getJSON('/data.new.json', function (films) {
       films.forEach(function (film) { 
         if (film.budget > 0 && film.worldwide_gross > 0) new Film (film)
       })
