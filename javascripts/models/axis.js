@@ -21,7 +21,7 @@ define(['lib/events', './film'], function (eventModule, Film) {
 
   var attributes = {},
       paperWidth = 850,
-      paperHeight = 560,
+      paperHeight = 590,
       axis
 
   var axisName = function (a) {
@@ -58,11 +58,11 @@ define(['lib/events', './film'], function (eventModule, Film) {
   }
 
   var filmToPoint = function (film) {
-    var xUnit = paperWidth / Math.log(this.x.max()),
+    var xUnit = paperWidth / Math.log(this.x.max() * 1000),
         yUnit = paperHeight / this.y.max()
 
     return {
-      x: xUnit * Math.log(film.attr(this.x.name())),
+      x: xUnit * Math.log(film.attr(this.x.name()) * 1000),
       y: paperHeight - (yUnit * film.attr(this.y.name()))
     }
   }
