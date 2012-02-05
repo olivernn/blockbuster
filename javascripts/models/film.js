@@ -89,6 +89,11 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     return results
   }
 
+  Film.resetSearch = function () {
+    Film.forEachCall('excludeFromFilter')
+    this.emit('searchReset', Film.all())
+  }
+
   Film.findSimilarTo = function (film, attrs) {
     var attrs = attrs || []
 
@@ -149,7 +154,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     normalizedStory: function () {
       if (!this.attr('story')) return
 
-      return this.attr('story').toLowerCase().replace('&', 'and')
+      return this.attr('story').toLowerCase().replace('&', 'and').trim()
     },
 
     select: function () {
