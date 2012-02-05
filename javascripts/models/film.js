@@ -20,7 +20,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     this.attributes.release_date = new Date (attributes.release_date)
     this.attributes.all_actors = this.attributes.actors.join(' ')
     this.attributes.profitability = this.attributes.worldwide_gross / this.attributes.budget * 100
-    this.attributes.year_string = "" + this.attributes.year
+    this.attributes.year_string = "" + this.attributes.year_string
     this.callbacks = {}
     Film.push(this)
     idx.add(this.attributes)
@@ -154,7 +154,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     },
 
     normalizedStory: function () {
-      if (!this.attr('story')) return
+      if (!this.attr('story')) return ''
 
       return this.attr('story').toLowerCase().replace('&', 'and').trim()
     },

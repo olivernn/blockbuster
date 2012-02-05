@@ -2,6 +2,12 @@ define(['jquery', 'vendor/poirot', 'models/film'], function ($, poirot, Film) {
 
   var container
 
+  var presenter = function (film) {
+    return $.extend({}, film.attributes, {
+      story_class: film.normalizedStory().replace(/\s/g, '-'),
+    })
+  }
+
   var init = function () {
     container = $('#film-list-view-container')
 
@@ -38,7 +44,7 @@ define(['jquery', 'vendor/poirot', 'models/film'], function ($, poirot, Film) {
   }
 
   var draw = function (films) {
-    container.html(poirot.filmListView({films: films.map(function (f) { return f.attributes }) }))
+    container.html(poirot.filmListView({films: films.map(presenter)}))
   }
 
   return {

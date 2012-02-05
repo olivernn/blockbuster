@@ -1,3 +1,5 @@
+@import 'mixins';
+
 #film-list-view-container {
 
   height: 440px;
@@ -25,9 +27,21 @@
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eeeeee', EndColorStr='#e1e1e1');
     font-size: 0.8em;
     padding: 6px;
+    padding-left: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
     &:hover {
       background-color: #e0e0e0;
@@ -47,5 +61,93 @@
     &:last-child {
       border-bottom: none !important;
     }
+  }
+
+  li.discovery:before {
+    @include gradient(rgb(122,73,28));
+  }
+
+  li.escape:before {
+    @include gradient(rgb(125, 0, 83));
+  }
+
+  li.journey-and-return:before {
+    @include gradient(rgb(199,200,202));
+  }
+
+  li.comedy:before {
+    @include gradient(rgb(34,164,151));
+  }
+
+  li.quest:before {
+    @include gradient(rgb(144,200,133));
+  }
+
+  li.sacrifice:before {
+    @include gradient(rgb(98,29,129));
+  }
+
+  li.wretched-excess:before {
+    @include gradient(rgb(89,90,93));
+  }
+
+  li.fish-out-of-water:before {
+    @include gradient(rgb(213,202,164));
+  }
+
+  li.maturation:before {
+    @include gradient(rgb(204,56,33));
+  }
+
+  li.pursuit:before {
+    @include gradient(rgb(161,71,141));
+  }
+
+  li.rivalry:before {
+    @include gradient(rgb(66,171,72));
+  }
+
+  li.underdog:before {
+    @include gradient(rgb(144,25,26));
+  }
+
+  li.love:before {
+    @include gradient(rgb(144,200,133));
+  }
+
+  li.monster-force:before {
+    @include gradient(rgb(231,4,28));
+  }
+
+  li.revenge:before {
+    @include gradient(rgb(112,183,50));
+  }
+
+  li.transformation:before {
+    @include gradient(rgb(169,147,38));
+  }
+
+  li.metamorphosis:before {
+    @include gradient(rgb(69,70,72));
+  }
+
+  li.rescue:before {
+    @include gradient(rgb(231,50,128));
+  }
+
+  li.tragedy:before {
+    @include gradient(rgb(177,114,33));
+  }
+
+  li.rags-to-riches:before {
+    @include gradient(rgb(49,60,146));
+  }
+
+  li.the-riddle:before {
+    @include gradient(rgb(152,203,194));
+  }
+
+  li.temptation:before {
+    @include gradient(rgb(211,147,126));
   }
 }

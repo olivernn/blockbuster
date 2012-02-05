@@ -19,9 +19,19 @@
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eeeeee', EndColorStr='#e1e1e1');
     font-size: 0.8em;
     padding: 6px;
+    padding-left: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #ccc;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative; }
+    #film-list-view-container li:before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0; }
     #film-list-view-container li:hover {
       background-color: #e0e0e0;
       background-image: -webkit-gradient(linear, left top, left bottom, from(#e0e0e0), to(#d1d1d1));
@@ -35,3 +45,157 @@
       border-top: none !important; }
     #film-list-view-container li:last-child {
       border-bottom: none !important; }
+  #film-list-view-container li.discovery:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7a491c), to(#613a16));
+    background-image: -webkit-linear-gradient(top, #7a491c, #613a16);
+    background-image: -moz-linear-gradient(top, #7a491c, #613a16);
+    background-image: -o-linear-gradient(top, #7a491c, #613a16);
+    background-image: -ms-linear-gradient(top, #7a491c, #613a16);
+    background-image: linear-gradient(top, #7a491c, #613a16); }
+  #film-list-view-container li.escape:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7d0053), to(#5e003f));
+    background-image: -webkit-linear-gradient(top, #7d0053, #5e003f);
+    background-image: -moz-linear-gradient(top, #7d0053, #5e003f);
+    background-image: -o-linear-gradient(top, #7d0053, #5e003f);
+    background-image: -ms-linear-gradient(top, #7d0053, #5e003f);
+    background-image: linear-gradient(top, #7d0053, #5e003f); }
+  #film-list-view-container li.journey-and-return:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c7c8ca), to(#b7b9bb));
+    background-image: -webkit-linear-gradient(top, #c7c8ca, #b7b9bb);
+    background-image: -moz-linear-gradient(top, #c7c8ca, #b7b9bb);
+    background-image: -o-linear-gradient(top, #c7c8ca, #b7b9bb);
+    background-image: -ms-linear-gradient(top, #c7c8ca, #b7b9bb);
+    background-image: linear-gradient(top, #c7c8ca, #b7b9bb); }
+  #film-list-view-container li.comedy:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#22a497), to(#1d8b80));
+    background-image: -webkit-linear-gradient(top, #22a497, #1d8b80);
+    background-image: -moz-linear-gradient(top, #22a497, #1d8b80);
+    background-image: -o-linear-gradient(top, #22a497, #1d8b80);
+    background-image: -ms-linear-gradient(top, #22a497, #1d8b80);
+    background-image: linear-gradient(top, #22a497, #1d8b80); }
+  #film-list-view-container li.quest:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#90c885), to(#7dbe70));
+    background-image: -webkit-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -moz-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -o-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -ms-linear-gradient(top, #90c885, #7dbe70);
+    background-image: linear-gradient(top, #90c885, #7dbe70); }
+  #film-list-view-container li.sacrifice:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#621d81), to(#4f1768));
+    background-image: -webkit-linear-gradient(top, #621d81, #4f1768);
+    background-image: -moz-linear-gradient(top, #621d81, #4f1768);
+    background-image: -o-linear-gradient(top, #621d81, #4f1768);
+    background-image: -ms-linear-gradient(top, #621d81, #4f1768);
+    background-image: linear-gradient(top, #621d81, #4f1768); }
+  #film-list-view-container li.wretched-excess:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#595a5d), to(#4a4b4d));
+    background-image: -webkit-linear-gradient(top, #595a5d, #4a4b4d);
+    background-image: -moz-linear-gradient(top, #595a5d, #4a4b4d);
+    background-image: -o-linear-gradient(top, #595a5d, #4a4b4d);
+    background-image: -ms-linear-gradient(top, #595a5d, #4a4b4d);
+    background-image: linear-gradient(top, #595a5d, #4a4b4d); }
+  #film-list-view-container li.fish-out-of-water:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d5caa4), to(#cbbe8f));
+    background-image: -webkit-linear-gradient(top, #d5caa4, #cbbe8f);
+    background-image: -moz-linear-gradient(top, #d5caa4, #cbbe8f);
+    background-image: -o-linear-gradient(top, #d5caa4, #cbbe8f);
+    background-image: -ms-linear-gradient(top, #d5caa4, #cbbe8f);
+    background-image: linear-gradient(top, #d5caa4, #cbbe8f); }
+  #film-list-view-container li.maturation:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cc3821), to(#b2311d));
+    background-image: -webkit-linear-gradient(top, #cc3821, #b2311d);
+    background-image: -moz-linear-gradient(top, #cc3821, #b2311d);
+    background-image: -o-linear-gradient(top, #cc3821, #b2311d);
+    background-image: -ms-linear-gradient(top, #cc3821, #b2311d);
+    background-image: linear-gradient(top, #cc3821, #b2311d); }
+  #film-list-view-container li.pursuit:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#a1478d), to(#8c3e7a));
+    background-image: -webkit-linear-gradient(top, #a1478d, #8c3e7a);
+    background-image: -moz-linear-gradient(top, #a1478d, #8c3e7a);
+    background-image: -o-linear-gradient(top, #a1478d, #8c3e7a);
+    background-image: -ms-linear-gradient(top, #a1478d, #8c3e7a);
+    background-image: linear-gradient(top, #a1478d, #8c3e7a); }
+  #film-list-view-container li.rivalry:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#42ab48), to(#39953f));
+    background-image: -webkit-linear-gradient(top, #42ab48, #39953f);
+    background-image: -moz-linear-gradient(top, #42ab48, #39953f);
+    background-image: -o-linear-gradient(top, #42ab48, #39953f);
+    background-image: -ms-linear-gradient(top, #42ab48, #39953f);
+    background-image: linear-gradient(top, #42ab48, #39953f); }
+  #film-list-view-container li.underdog:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#90191a), to(#761415));
+    background-image: -webkit-linear-gradient(top, #90191a, #761415);
+    background-image: -moz-linear-gradient(top, #90191a, #761415);
+    background-image: -o-linear-gradient(top, #90191a, #761415);
+    background-image: -ms-linear-gradient(top, #90191a, #761415);
+    background-image: linear-gradient(top, #90191a, #761415); }
+  #film-list-view-container li.love:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#90c885), to(#7dbe70));
+    background-image: -webkit-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -moz-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -o-linear-gradient(top, #90c885, #7dbe70);
+    background-image: -ms-linear-gradient(top, #90c885, #7dbe70);
+    background-image: linear-gradient(top, #90c885, #7dbe70); }
+  #film-list-view-container li.monster-force:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e7041c), to(#c90318));
+    background-image: -webkit-linear-gradient(top, #e7041c, #c90318);
+    background-image: -moz-linear-gradient(top, #e7041c, #c90318);
+    background-image: -o-linear-gradient(top, #e7041c, #c90318);
+    background-image: -ms-linear-gradient(top, #e7041c, #c90318);
+    background-image: linear-gradient(top, #e7041c, #c90318); }
+  #film-list-view-container li.revenge:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#70b732), to(#619f2b));
+    background-image: -webkit-linear-gradient(top, #70b732, #619f2b);
+    background-image: -moz-linear-gradient(top, #70b732, #619f2b);
+    background-image: -o-linear-gradient(top, #70b732, #619f2b);
+    background-image: -ms-linear-gradient(top, #70b732, #619f2b);
+    background-image: linear-gradient(top, #70b732, #619f2b); }
+  #film-list-view-container li.transformation:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#a99326), to(#907d20));
+    background-image: -webkit-linear-gradient(top, #a99326, #907d20);
+    background-image: -moz-linear-gradient(top, #a99326, #907d20);
+    background-image: -o-linear-gradient(top, #a99326, #907d20);
+    background-image: -ms-linear-gradient(top, #a99326, #907d20);
+    background-image: linear-gradient(top, #a99326, #907d20); }
+  #film-list-view-container li.metamorphosis:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#454648), to(#363738));
+    background-image: -webkit-linear-gradient(top, #454648, #363738);
+    background-image: -moz-linear-gradient(top, #454648, #363738);
+    background-image: -o-linear-gradient(top, #454648, #363738);
+    background-image: -ms-linear-gradient(top, #454648, #363738);
+    background-image: linear-gradient(top, #454648, #363738); }
+  #film-list-view-container li.rescue:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e73280), to(#e01a70));
+    background-image: -webkit-linear-gradient(top, #e73280, #e01a70);
+    background-image: -moz-linear-gradient(top, #e73280, #e01a70);
+    background-image: -o-linear-gradient(top, #e73280, #e01a70);
+    background-image: -ms-linear-gradient(top, #e73280, #e01a70);
+    background-image: linear-gradient(top, #e73280, #e01a70); }
+  #film-list-view-container li.tragedy:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#b17221), to(#97611c));
+    background-image: -webkit-linear-gradient(top, #b17221, #97611c);
+    background-image: -moz-linear-gradient(top, #b17221, #97611c);
+    background-image: -o-linear-gradient(top, #b17221, #97611c);
+    background-image: -ms-linear-gradient(top, #b17221, #97611c);
+    background-image: linear-gradient(top, #b17221, #97611c); }
+  #film-list-view-container li.rags-to-riches:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#313c92), to(#29337b));
+    background-image: -webkit-linear-gradient(top, #313c92, #29337b);
+    background-image: -moz-linear-gradient(top, #313c92, #29337b);
+    background-image: -o-linear-gradient(top, #313c92, #29337b);
+    background-image: -ms-linear-gradient(top, #313c92, #29337b);
+    background-image: linear-gradient(top, #313c92, #29337b); }
+  #film-list-view-container li.the-riddle:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#98cbc2), to(#84c1b6));
+    background-image: -webkit-linear-gradient(top, #98cbc2, #84c1b6);
+    background-image: -moz-linear-gradient(top, #98cbc2, #84c1b6);
+    background-image: -o-linear-gradient(top, #98cbc2, #84c1b6);
+    background-image: -ms-linear-gradient(top, #98cbc2, #84c1b6);
+    background-image: linear-gradient(top, #98cbc2, #84c1b6); }
+  #film-list-view-container li.temptation:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d3937e), to(#cb8067));
+    background-image: -webkit-linear-gradient(top, #d3937e, #cb8067);
+    background-image: -moz-linear-gradient(top, #d3937e, #cb8067);
+    background-image: -o-linear-gradient(top, #d3937e, #cb8067);
+    background-image: -ms-linear-gradient(top, #d3937e, #cb8067);
+    background-image: linear-gradient(top, #d3937e, #cb8067); }
