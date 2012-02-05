@@ -10,17 +10,17 @@ define(['jquery', 'lib/svg', 'models/film', 'lib/story_color'], function ($, SVG
     },{
       attrName: 'budget',
       log: true,
-      transform: function (n) { return Math.log(n) }
+      transform: function (n) { return Math.log(n * 1000) }
     },{
       attrName: 'worldwide_gross',
       log: true,
-      transform: function (n) { return Math.log(n) }
+      transform: function (n) { return Math.log(n * 1000) }
     },{
       attrName: 'number_of_theatres_in_opening_weekend'
     },{
       attrName: 'profitability',
       log: true,
-      transform: function (n) { return Math.log(n) }
+      transform: function (n) { return Math.log(n * 1000) }
     }
   ]
 
@@ -34,7 +34,7 @@ define(['jquery', 'lib/svg', 'models/film', 'lib/story_color'], function ($, SVG
 
     prongs.forEach(function (prong) {
       prong.maxValue = Math.max.apply(null, Film.map(prong.max || function (f) { return f.attr(prong.attrName)}))
-      if (prong.log) prong.maxValue = Math.log(prong.maxValue)
+      if (prong.log) prong.maxValue = Math.log(prong.maxValue * 1000)
       prong.unit = 75 / prong.maxValue
     })
 
@@ -52,9 +52,6 @@ define(['jquery', 'lib/svg', 'models/film', 'lib/story_color'], function ($, SVG
       var axis = new SVG.Line({stroke: '#111', 'stroke-width': 3})
       axis.startPoint({x: 0, y: 0})
       axis.endPoint(rotatePoint({x: 0, y: 75}, angleStep * idx))
-      axis.on('mouseover', function () {
-        console.log(prong.attrName)
-      })
       polygons.add(axis)
     })
   }
