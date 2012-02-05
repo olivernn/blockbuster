@@ -41,6 +41,8 @@ define(['models/film'], function (Film) {
     },
   
     valueForFilm: function (film) {
+      if (film.attr(this.name()) == 0) return 0
+
       if (this.isLog()) {
         return Math.log(film.attr(this.name()) * 1000)
       } else {
