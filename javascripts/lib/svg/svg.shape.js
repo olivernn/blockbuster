@@ -12,9 +12,7 @@ define(function () {
     }
   }
 
-  Shape = function () {
-    this.transform = new Matrix
-  }
+  Shape = function () {}
 
   Shape.prototype = {
     toElem: function () {
