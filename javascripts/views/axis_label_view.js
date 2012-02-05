@@ -1,4 +1,4 @@
-define(['jquery', 'vendor/poirot'], function ($, poirot) {
+define(['jquery', 'vendor/poirot', 'models/axis_attribute'], function ($, poirot, AxisAttribute) {
 
   var AxisLabelView = function (orientation, axis) {
     this.container = $('#' + orientation + '-axis-label-container')
@@ -11,7 +11,8 @@ define(['jquery', 'vendor/poirot'], function ($, poirot) {
     render: function () {
       this.html = poirot.axisLabel($.extend({}, this.axis, {
         name: this.axis.name(),
-        orientation: this.orientation
+        orientation: this.orientation,
+        possibleValues: AxisAttribute.map(function (aa) { return aa.attributes })
       }))
 
       this.html

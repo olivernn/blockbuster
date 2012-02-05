@@ -1,23 +1,4 @@
-define(['lib/events', './film'], function (eventModule, Film) {
-
-  var possibleValues = {
-    x: [
-      'profitability',
-      'budget',
-      'worldwide_gross',
-      'domestic_gross',
-      'foreign_gross',
-      'box_office_average_per_cinema'
-    ],
-
-    y: [
-      'number_of_theatres_in_opening_weekend',
-      'audience_score',
-      'rotten_tomatoes',
-      'runtime',
-      'release_year_day'
-    ]
-  }
+define(['lib/events', './film', './axis_attribute'], function (eventModule, Film, AxisAttribute) {
 
   var attributes = {},
       paperWidth = 850,
@@ -34,36 +15,23 @@ define(['lib/events', './film'], function (eventModule, Film) {
     }
   }
 
-  var axisMax = function (axis) {
-    return function () {
-      return Math.max.apply(null, Film.pluck(attributes[axis].name))
-    }
-  }
-
-  var axisMin = function (axis) {
-    return function () {
-      return Math.min.apply(null, Film.pluck(attributes[axis].name))
-    }
-  }
-
   var makeAxis = function (axis) {
     attributes[axis] = {}
 
     return {
-      name: axisName(axis),
-      max: axisMax(axis),
-      min: axisMin(axis),
-      possibleValues: possibleValues[axis]
+      name: axisName(axis)
     }
   }
 
   var filmToPoint = function (film) {
-    var xUnit = paperWidth / Math.log(this.x.max() * 1000),
-        yUnit = paperHeight / this.y.max()
+    var xAttr = AxisAttribute.find(this.x.name()),
+        yAttr = AxisAttribute.find(this.y.name()),
+        xUnit = paperWidth / xAttr.max(),
+        yUnit = paperHeight / yAttr.max()
 
     return {
-      x: xUnit * Math.log(film.attr(this.x.name()) * 1000),
-      y: paperHeight - (yUnit * film.attr(this.y.name()))
+      x: xUnit * xAttr.valueForFilm(film),
+      y: paperHeight - (yUnit * yAttr.valueForFilm(film))
     }
   }
 
