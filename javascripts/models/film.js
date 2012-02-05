@@ -70,7 +70,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
   }
 
   Film.load = function (fn) {
-    $.getJSON('/data.new.json', function (films) {
+    $.getJSON('/blockbuster/data.new.json', function (films) {
       films.forEach(function (film) { 
         if (film.budget > 0 && film.worldwide_gross > 0) new Film (film)
       })
