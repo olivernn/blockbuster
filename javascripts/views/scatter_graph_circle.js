@@ -57,11 +57,11 @@ define(['jquery', 'lib/svg', 'lib/tooltip', 'lib/story_color'], function ($, SVG
   }
 
   ScatterGraphCircle.prototype.blip = function () {
-    this.circle.animate('r', {from: 10, to: 14, dur: '0.6s', fill: 'freeze'})
+    this.circle.animate('r', {to: 14, dur: '0.6s', fill: 'freeze'})
   }
 
   ScatterGraphCircle.prototype.unBlip = function () {
-    this.circle.animate('r', {from: 14, to: 10, dur: '0.6s', fill: 'freeze'})
+    this.circle.animate('r', {to: 10, dur: '0.6s', fill: 'freeze'})
   }
 
   ScatterGraphCircle.prototype.expand = function () {
