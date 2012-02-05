@@ -33,7 +33,7 @@ define(['vendor/handlebars'], function (Handlebars) {
   })
 
   Handlebars.registerHelper('round2', function (n) {
-    return parseInt(n, 10).toFixed(2)
+    return parseFloat(n, 10).toFixed(2)
   })
 
   Handlebars.registerHelper('percentage', function (n) {
