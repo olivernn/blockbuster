@@ -62,6 +62,11 @@
             </tr>
 
             <tr>
+              <th>Lead Studio</th>
+              <td>{{lead_studio}}</td>
+            </tr>
+
+            <tr>
               <th>Rating</th>
               <td>{{rated}}</td>
             </tr>
@@ -147,7 +152,7 @@
   <script id="film-list-view-template" type="text/mustache">
     <ul>
       {{#films}}
-        <li data-film-id="{{id}}">{{title}}</li>
+        <li data-film-id='{{id}}' class='{{story_class}}'>{{title}}</li>
       {{/films}}
       {{^films}}
         <p class='no-results'>No Results Found<br/><a href='#'>Reset Search</a></p>
@@ -221,7 +226,13 @@
       </div>
     </section>
     <footer>
-      <p>By <a href='http://twitter.com/olivernn'>Oliver Nightingale</a></p>
+      <nav>
+        <ul>
+          <li>By <a href='http://twitter.com/olivernn'>Oliver Nightingale</a></li>
+          <li><a href=''>About</a></li>
+          <li><a href=''>Code</a></li>
+          <li><a href=''>Legend</a></li>
+        </ul>
     </footer>
   </div>
   <div id='film-view-container'></div>
