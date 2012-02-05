@@ -11,6 +11,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     this.field('genre', { multiplier: 5 })
     this.field('story', { multiplier: 5 })
     this.field('plot')
+    this.field('year_string')
   })
 
   var Film = function (attributes) {
@@ -19,6 +20,7 @@ define(['jquery', 'lib/events', 'vendor/lunr', 'lib/core_extensions/date'], func
     this.attributes.release_date = new Date (attributes.release_date)
     this.attributes.all_actors = this.attributes.actors.join(' ')
     this.attributes.profitability = this.attributes.worldwide_gross / this.attributes.budget * 100
+    this.attributes.year_string = "" + this.attributes.year
     this.callbacks = {}
     Film.push(this)
     idx.add(this.attributes)
