@@ -1,4 +1,4 @@
-define(['./svg.matrix'], function (Matrix) {
+define(function () {
 
   var svgNamespace = "http://www.w3.org/2000/svg"
 
