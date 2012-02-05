@@ -1,0 +1,11 @@
+footer {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 0.9em;
+  clear: both; }
+  footer ul {
+    margin: 0;
+    padding: 0; }
+  footer li {
+    display: inline;
+    padding: 0 6px; }
