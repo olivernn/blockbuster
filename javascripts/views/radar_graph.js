@@ -70,12 +70,16 @@ define(['jquery', 'lib/svg', 'models/film', 'lib/story_color'], function ($, SVG
       polygon.addPoint(point)
     })
 
-    polygon.on('mouseover', function () {
-      film.highlight()
-    })
-    polygon.on('mouseout', function () {
-      setTimeout(film.unhighlight(), 600)
-    })
+    polygon
+      .on('mouseover', function () {
+        film.highlight()
+      })
+      .on('mouseout', function () {
+        setTimeout(film.unhighlight(), 600)
+      })
+      .on('click', function () {
+        film.select()
+      })
 
     polygons.add(polygon)
   }
