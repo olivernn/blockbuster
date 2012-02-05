@@ -1,13 +1,12 @@
 define([
   'jquery',
-  './../lib/svg',
+  'lib/svg',
   './scatter_graph_circle',
-  './../lib/jquery.zoomable',
-  './../models/film',
-  './../models/axis',
+  'models/film',
+  'models/axis',
   './scatter_graph_path',
   './axis_label_view'
-], function ($, SVG, ScatterGraphCircle, _, Film, axis, ScatterGraphPath, AxisLabelView) {
+], function ($, SVG, ScatterGraphCircle, Film, axis, ScatterGraphPath, AxisLabelView) {
 
   var  elem, circleGroup, pathGroup
 
@@ -26,9 +25,6 @@ define([
     pathGroup.attr('height', paper.height())
 
     circleGroup.add(pathGroup)
-
-    // disabled for now because its not working properly
-    // elem.zoomable(circleGroup)
 
     axis.on('changed', drawAxisLabels)
 
@@ -59,8 +55,32 @@ define([
   }
 
   var drawAxisLabels = function () {
+
     new AxisLabelView ('x', axis).render()
     new AxisLabelView ('y', axis).render()
+
+    var xAxis = new SVG.Line ({stroke: '#666', 'stroke-width': 2}),
+        yAxis = new SVG.Line ({stroke: '#666', 'stroke-width': 2}),
+        xTriangle = new SVG.Polygon ({stroke: '#666', 'stroke-width': 0, fill: '#666'}),
+        yTriangle = new SVG.Polygon ({stroke: '#666', 'stroke-width': 0, fill: '#666', title: 'foo'})
+
+    xAxis.startPoint({x: 10, y: paper.height() - 10})
+    xAxis.endPoint({x: 110, y: paper.height() - 10})
+    yAxis.startPoint({x: 10, y: paper.height() - 10})
+    yAxis.endPoint({x: 10, y: paper.height() - 110})
+
+    xTriangle.addPoint({x: 110, y: paper.height() - 6})
+    xTriangle.addPoint({x: 115, y: paper.height() - 10})
+    xTriangle.addPoint({x: 110, y: paper.height() - 14})
+
+    yTriangle.addPoint({x: 6, y: paper.height() - 110})
+    yTriangle.addPoint({x: 14, y: paper.height() - 110})
+    yTriangle.addPoint({x: 10, y: paper.height() - 115})
+
+    paper.draw(xAxis)
+    paper.draw(yAxis)
+    paper.draw(xTriangle)
+    paper.draw(yTriangle)
   }
 
   return {
