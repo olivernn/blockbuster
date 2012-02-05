@@ -148,12 +148,16 @@
       {{#films}}
         <li data-film-id="{{id}}">{{title}}</li>
       {{/films}}
+      {{^films}}
+        <p class='no-results'>No Results Found<br/><a href='#'>Reset Search</a></p>
+      {{/films}}
     </ul>
   </script>
 
   <script id="search-template" type="text/mustache">
     <form>
-      <input type='search' placeholder='Search by film title, actors, director, genre'></input>
+      <input type='text' placeholder='Search by film title, actors, director, genre'></input>
+      <input type='submit' value='Search'></input>
     </form>
   </script>
 

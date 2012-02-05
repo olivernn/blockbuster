@@ -1,3 +1,5 @@
+@import 'mixins';
+
 #search-container {
   float: right;
 
@@ -5,8 +7,18 @@
     padding-top: 6px;
   }
 
-  input {
-    font-size: 1.1em;
+  input[type='text'] {
     width: 400px;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+    padding: 3px;
+    font-size: 0.8em;
+  }
+
+  input[type='submit'] {
+    color: #666;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    @include grey-gradient;
   }
 }

@@ -2,6 +2,21 @@
   float: right; }
   #search-container form {
     padding-top: 6px; }
-  #search-container input {
-    font-size: 1.1em;
-    width: 400px; }
+  #search-container input[type='text'] {
+    width: 400px;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+    padding: 3px;
+    font-size: 0.8em; }
+  #search-container input[type='submit'] {
+    color: #666;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    background-color: #e0e0e0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e0e0e0), to(#d1d1d1));
+    background-image: -webkit-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -moz-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -o-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: -ms-linear-gradient(top, #e0e0e0, #d1d1d1);
+    background-image: linear-gradient(top, #e0e0e0, #d1d1d1);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1'); }

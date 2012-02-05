@@ -20,8 +20,8 @@ define(['jquery', 'vendor/poirot', 'models/film'], function ($, poirot, Film) {
 
   var handleSearch = function (e) {
     e.preventDefault()
-    var form = $(this)
-    Film.search(form.find('input').val())
+    var query = $(this).find('input').val()
+    query ? Film.search(query) : Film.resetSearch()
   }
 
   return {

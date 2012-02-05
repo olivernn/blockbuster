@@ -23,10 +23,18 @@ define(['jquery', 'vendor/poirot', 'models/film'], function ($, poirot, Film) {
       .delegate('li', 'mouseover', getFilmAnd('highlight'))
       .delegate('li', 'mouseout', getFilmAnd('unhighlight'))
       .delegate('li', 'click', getFilmAnd('select'))
+      .delegate('.no-results a', 'click', resetSearch)
+  }
+
+  var resetSearch = function (e) {
+    e.preventDefault()
+    Film.resetSearch()
   }
 
   var bindFilmEvents = function () {
-    Film.on('searchResults', draw)
+    Film
+      .on('searchResults', draw)
+      .on('searchReset', draw)
   }
 
   var draw = function (films) {

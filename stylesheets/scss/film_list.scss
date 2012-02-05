@@ -3,6 +3,11 @@
   height: 440px;
   overflow-y: scroll;
 
+  .no-results {
+    text-align: center;
+    font-size: 0.8em;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -18,7 +23,7 @@
     background-image: -ms-linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
     background-image: linear-gradient(top, rgb(238, 238, 238), rgb(225, 225, 225));
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eeeeee', EndColorStr='#e1e1e1');
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 6px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #ccc;
@@ -33,7 +38,6 @@
       background-image: -ms-linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
       background-image: linear-gradient(top, rgb(224, 224, 224), rgb(209, 209, 209));
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e0e0e0', EndColorStr='#d1d1d1');
-      font-weight: bold;
     };
 
     &:first-child {
